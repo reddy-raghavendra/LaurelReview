@@ -1,41 +1,95 @@
 import React from "react";
-import {Link,useHistory} from "react-router-dom"
+import { Link, useHistory } from "react-router-dom";
 function Login() {
-    const history = useHistory()
-    const loginUser = ()=>{
-        if ((document.getElementById("login").value == "admin") &&
-            (document.getElementById("password").value=="admin")){
-                history.push("/admin")            
-        } else {
-            alert("Incorrect password")   
-        }
-
+  const history = useHistory();
+  const loginUser = () => {
+    if (
+      document.getElementById("login").value == "admin" &&
+      document.getElementById("password").value == "admin"
+    ) {
+      history.push("/admin");
+    } else {
+      alert("Incorrect password");
     }
+  };
+  const unCheckRememberMe = () => {
+    if (document.getElementById("check").checked == true) {
+      document.getElementById("check").checked = false;
+    } else {
+      document.getElementById("check").checked = true;
+    }
+  };
   return (
-   <div className="wrapper fadeInDown">
-   <div id="formContent">
-     
-     <div className="fadeIn first">
-       <img src="http://www.laurelreview.org/themes/laurelv1/img/LaurelImg1.jpeg" id="icon" alt="User Icon" />
-     </div>
- 
-   
-     <form>
-       <input type="text" id="login" className="fadeIn second" name="login" placeholder="login"/>
-       <input type="text" id="password" className="fadeIn third" name="login" placeholder="password"/>
-       <input type="submit" className="fadeIn fourth" value="Log In" onClick={loginUser}/>
-     </form>
+    <div>
+      <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+              <img
+                src="https://laurelreview.org/uploads/issues/fpvXBRTrJQ53WQqT_461.jpeg"
+                class="img-fluid"
+                alt="Phone image"
+              ></img>
+            </div>
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+              <form>
+                <div class="form-outline mb-4">
+                  <b>Sign in</b>
+                </div>
+                <div class="form-outline mb-4">
+                  <input
+                    type="email"
+                    id="login"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="form1Example13">
+                    Email address
+                  </label>
+                </div>
 
-     <div id="formFooter">
-       <a className="underlineHover" href="#">Forgot Password?</a> &nbsp;
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <Link className="underlineHover" to="/register">Register</Link>
+                <div class="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="form1Example23">
+                    Password
+                  </label>
+                </div>
 
-     </div>
- 
-   </div>
- </div>
+                <div class="d-flex justify-content-around align-items-center mb-4">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="check"
+                      checked
+                      onClick={unCheckRememberMe}
+                    />
+                    <label class="form-check-label" for="form1Example3">
+                      {" "}
+                      Remember me{" "}
+                    </label>
+                  </div>
+                  <a href="#!">Forgot password?</a>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg btn-block"
+                  onClick={loginUser}
+                >
+                  Sign in
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
 
-export default Login
+export default Login;

@@ -13,28 +13,28 @@ import Register from "./components/Register";
 import ADashboard from "./components/Admin-Dashboard";
 
 const App = () => {
-  return(
-  <Router>
-    <div className="App">
-      {/* <Navbar/> */}
+  return (
+    <Router>
+      <div className="App">
+        {/* <Navbar/> */}
 
-    <Route exact path="/">
-      <Home/>
-    </Route>
-    
-    <Route exact path="/login">
-      <Login/>
-    </Route>
-    <Route exact path="/register">
-      <Register/>
-    </Route>
-    <Route exact path="/admin">
-        <ADashboard/>
-    </Route>
-    
-    </div>
-  </Router>
-  )
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/register">
+          <Register />
+        </Route>
+        <Route exact path="/admin">
+          <ADashboard />
+        </Route>
+        
+      </div>
+    </Router>
+  );
 };
 
 export default App;
