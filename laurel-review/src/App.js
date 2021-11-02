@@ -11,6 +11,8 @@ import {
 import Home from "./components/Home";
 import Register from "./components/Register";
 import ADashboard from "./components/Admin-Dashboard";
+import Chapbook from "./components/Chapbook";
+import CreateUser from "./components/CreateUser.js";
 
 const App = () => {
   return (
@@ -27,6 +29,12 @@ const App = () => {
         </Route>
         <Route exact path="/admin">
           <ADashboard />
+        </Route>
+        <Route exact path="/Chapbook">
+          <Chapbook />
+        </Route>
+        <Route exact path="/CreateUser">
+          <CreateUser />
         </Route>
       </div>
     </Router>

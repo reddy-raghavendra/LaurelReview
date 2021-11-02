@@ -11,7 +11,7 @@ export default function App() {
   }, [editorState]);
   return (
     <div>
-      <div style={{ border: "1px solid black", padding: '2px', minHeight: '400px' }}>
+      <div style={{border: "1px solid black", padding: '2px', height: '200px', width: '800px'}}>
         <Editor
           editorState={editorState}
           onEditorStateChange={setEditorState}
