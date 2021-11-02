@@ -27,13 +27,13 @@ function Login() {
             <div class="col-md-8 col-lg-7 col-xl-6">
               <img
                 src="https://laurelreview.org/uploads/issues/fpvXBRTrJQ53WQqT_461.jpeg"
-                class="img-fluid"
+                className="img-fluid"
                 alt="Phone image"
               ></img>
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form>
-                <div class="form-outline mb-4">
+                <div className="form-outline mb-4">
                   <b>Sign in</b>
                 </div>
                 <div class="form-outline mb-4">
