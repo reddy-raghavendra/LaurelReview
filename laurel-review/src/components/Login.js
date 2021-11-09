@@ -1,15 +1,20 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import homeStyle from "./HomeStyle.css";
 function Login() {
   const history = useHistory();
   const loginUser = () => {
     if (
-      document.getElementById("login").value == "admin" &&
+      document.getElementById("login").value == "admin@gmail.com" &&
       document.getElementById("password").value == "admin"
     ) {
-      history.push("/admin");
+      history.push("/AdminDashboard");
     } else {
-      alert("Incorrect password");
+      if (document.getElementById("login").value !== "admin@gmail.com") {
+        alert("Please enter a valid email address");
+      } else {
+        alert("Entered password is incorrect");
+      }
     }
   };
   const unCheckRememberMe = () => {
@@ -43,6 +48,7 @@ function Login() {
                     class="form-control form-control-lg"
                   />
                   <label class="form-label" for="form1Example13">
+                    <span id="asterik">*</span>
                     Email address
                   </label>
                 </div>
@@ -54,6 +60,7 @@ function Login() {
                     class="form-control form-control-lg"
                   />
                   <label class="form-label" for="form1Example23">
+                    <span id="asterik">*</span>
                     Password
                   </label>
                 </div>

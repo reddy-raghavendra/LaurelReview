@@ -1,10 +1,5 @@
 
 /* BASIC */
-
-html {
-  background-color: #56baed;
-}
-
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
@@ -273,4 +268,13 @@ input[type=text]:placeholder {
 
 #icon {
   width:60%;
+}
+.container{
+  display: flex;
+  margin-top: 10px;
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;
 }

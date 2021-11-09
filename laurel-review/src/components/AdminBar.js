@@ -7,17 +7,16 @@ import {
   IconButton,
   MenuIcon,
 } from "@mui/material";
-import HomeStyle from "./HomeStyle.css"
-
-function Navbar() {
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+function AdminBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar id="background">
+        <Toolbar>
           <IconButton
             size="large"
             edge="start"
-            color="secondary"
+            color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
@@ -26,16 +25,12 @@ function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             The Laurel Review
           </Typography>
-          <Button color="inherit">Submissions</Button>
-          <Button color="inherit">Subscriptions</Button>
-          <Button color="inherit">Issues</Button>
-          <Button color="inherit">Chapbooks</Button>
-          <Button color="inherit">Podcast</Button>
-          <Button color="inherit">About us</Button>
-          <Button color="inherit" href="./Login">Admin Login</Button>
+          <Button color="inherit" href="./home">Home</Button>
+          <Button color="inherit">Account</Button>
+          <Button color="inherit" href="./home">AccountCircleIcon</Button>
         </Toolbar>
       </AppBar>
     </Box>
   );
 }
-export default Navbar;
+export default AdminBar;
