@@ -15,6 +15,7 @@ export default function AboutUs() {
     const handleDelete = (id) => {
         setData(data.filter((item) => item.id !== id));
     };
+    
 
     const columns = [
         { field: "id", headerName: "ID", width: 90 },
