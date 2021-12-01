@@ -11,7 +11,6 @@ import { useState } from "react";
 
 export default function AboutUs() {
     const [data, setData] = useState(userRows);
-
     const handleDelete = (id) => {
         setData(data.filter((item) => item.id !== id));
     };
