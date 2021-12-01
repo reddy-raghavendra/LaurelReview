@@ -36,6 +36,7 @@
   .DashboardListItem.active,
   .DashboardListItem:hover {
     background-color: rgb(240, 240, 255);
+    
   }
   
   .DashboardIcon{
