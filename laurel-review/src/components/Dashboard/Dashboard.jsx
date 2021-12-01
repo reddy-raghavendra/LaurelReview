@@ -126,7 +126,55 @@ export default function Dashboard() {
           </div>
 
 
-         
+          {/* <div className="DashboardMenu">
+            <h2 className="DashboardTitle">Quick Menu</h2>
+            <ul className="DashboardList">
+              <Link to="/users" className="link">
+                <li className="DashboardListItem">
+                  Users
+                </li>
+              </Link>
+              <Link to="/products" className="link">
+                <li className="DashboardListItem">
+                  Products
+                </li>
+              </Link>
+              <li className="DashboardListItem">
+                Transactions
+              </li>
+              <li className="DashboardListItem">
+                Reports
+              </li>
+            </ul>
+          </div>
+          <div className="DashboardMenu">
+            <h2 className="DashboardTitle">Notifications</h2>
+            <ul className="DashboardList">
+              <li className="DashboardListItem">
+                Mail
+              </li>
+              <li className="DashboardListItem">
+                Feedback
+              </li>
+              <li className="DashboardListItem">
+                Messages
+              </li>
+            </ul>
+          </div>
+          <div className="DashboardMenu">
+            <h2 className="DashboardTitle">Staff</h2>
+            <ul className="DashboardList">
+              <li className="DashboardListItem">
+                Manage
+              </li>
+              <li className="DashboardListItem">
+                Analytics
+              </li>
+              <li className="DashboardListItem">
+                Reports
+              </li>
+            </ul>
+          </div> */}
         </div>
       </div>
     );
