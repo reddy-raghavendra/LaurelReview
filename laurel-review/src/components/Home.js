@@ -5,6 +5,7 @@ import homeStyle from "./HomeStyle.css"
 // import "../styles/HomeStyle.css";
 // import im from "../images/home.png"
 function Home() {
+  
   return (
     <div className="bg" >
       <Navbar />
