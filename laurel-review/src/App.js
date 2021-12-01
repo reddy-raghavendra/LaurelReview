@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+import axios from "axios";
 import Dashboard from "./components/Dashboard/Dashboard";
 // import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
@@ -43,44 +44,9 @@ const App = () => {
           <CreateUser />
         </Route>
         <Route exact path="/Dashboard"></Route>
-        <Navbar />
+        {/* <Navbar /> */}
        </Router>
-        <Router>
-        <div className="container">
-          <Route exact path="/AdminDashboard">
-            <Dashboard />
-            <Switch>
-              {/* <Route exact path="/">
-            <Home />
-          </Route> */}
-              <Route path="/users">
-                {/* <NewUser /> */}
-                <UserList />
-                <Route path="/aboutUs">
-                  {/* <NewUser /> */}
-                  <AboutUs />
-                </Route>
-              </Route>
-              <Route path="/user/:userId">
-                <User />
-              </Route>
-              <Route path="/newUser">
-                <NewUser />
-              </Route>
-              <Route path="/products">
-                <ProductList />
-              </Route>
-              <Route path="/product/:productId">
-                <Product />
-              </Route>
-              <Route path="/newproduct">
-                <NewProduct />
-              </Route>
-            </Switch>
-          </Route>
-        </div>
-      </Router>
-    </div>
+     </div>
   );
 };
 
