@@ -1,0 +1,12 @@
+.laurel-issues-section{
+    padding: 24px 160px;
+}
+
+.laurel-issue-cover img{
+    height: 200px;
+    width: 150px;
+}
+.laurel-issue {
+    display: inline-block;
+    width: 20%;
+}

@@ -11,3 +11,7 @@
   background-color: rgb(255, 255, 255);
   color:black;
 }
+.MuiToolbar-root.MuiToolbar-gutters{
+  justify-content: space-between;
+  padding: 0 160px; 
+}

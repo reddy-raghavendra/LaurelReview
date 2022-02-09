@@ -6,50 +6,30 @@ function Login() {
   const history = useHistory();
 
  async function getUser() {
-
-    var email = document.getElementById("login").value    
-    const url = `http://localhost:8081/users/email/${email}`;
-    // const url = `http://localhost:8081/users/email/test1@gmail.com`;
-    console.log(url)
-    return new Promise(function (resolve, reject) {
-      axios.get(url).then(
-          (response) => {
-              var result = response.data;
-              console.log('Processing Request');
-              resolve(result);
-          },
-              (error) => {
-              reject(error);
-          }
-      );
-  });
-    // try {
-    //   // debugger
-    //   // let res = await axios.get(url).then(data=>{
-    //   //   console.log(data.data)
-    //   //   return data
-    //   // });
-    //   let res = await axios.get(url)
-    //   console.log(res.PromiseResult.data)
-    //   return res
-      
-    //   // return res.json;
-    // } catch (error) {
-    //   console.error();
-    // }
+  var userData = {"email":document.getElementById("login").value,
+                  "password":document.getElementById("password").value};
+                  (async () => {
+                    const element = document.querySelector('#post-request-async-await .article-id');              
+                    // const response = await axios.post('http://localhost:8081/api/login', userData);
+                    await axios.post('http://localhost:8081/api/login', userData).then(
+                      (response) => {
+                        if(response.data === "Login Success"){
+                          window.location.href = "http://localhost:3001/issuelist"
+                        }
+                        else{
+                          alert("Incorrect email or password");
+                        }
+                      //  return response.data;
+                      });
+                    // console.log(response.data)
+                    // return response.data;
+                })();        
   }
 
   async function loginUser(event){
 
     event.preventDefault();
-    let user = await getUser();
-    let password = document.getElementById("password");
-    if(password.value === user.password){
-      window.location.href = "http://localhost:3001/"
-    }
-    else{
-      alert("Incorrect email or password");
-    }
+    await getUser();
   };
 
   const unCheckRememberMe = () => {

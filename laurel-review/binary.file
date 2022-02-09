@@ -1,0 +1,194 @@
+diff --git a/laurel-review/src/App.css b/laurel-review/src/App.css
+index 9adecf4..59e9657 100644
+--- a/laurel-review/src/App.css
++++ b/laurel-review/src/App.css
+@@ -13,7 +13,7 @@ a {
+   font-weight: 400;
+ }
+ 
+-h2 {
++h2.laurel-h2 {
+   text-align: center;
+   font-size: 16px;
+   font-weight: 600;
+diff --git a/laurel-review/src/App.js b/laurel-review/src/App.js
+index 930fb96..de97465 100644
+--- a/laurel-review/src/App.js
++++ b/laurel-review/src/App.js
+@@ -1,9 +1,9 @@
+ import logo from "./logo.svg";
+ import axios from "axios";
+ import Dashboard from "./components/Dashboard/Dashboard";
++import { Component } from "react";
+ // import Navbar from "./components/Navbar/Navbar";
+ import "./App.css";
+-import Navbar from "./components/Navbar/Navbar";
+ import Login from "./components/Login";
+ import UserList from "./pages/Preferences/userList/UserList";
+ import User from "./pages/Preferences/user/User";
+@@ -22,32 +22,53 @@ import Register from "./components/Register";
+ import Chapbook from "./components/Chapbook";
+ import CreateUser from "./components/CreateUser.js";
+ import AboutUs from "./pages/pages/AboutUs";
++import { Issues } from "./components/Issues/Issues.js";
++import issuesService from "./service/issues.service";
++import Navbar from "./components/Navbar";
++import IssueDetails from './components/Issues/IssueDetails/IssueDetails';
++
+ // import AdminBar from "./components/AdminBar.js";
+ 
+-const App = () => {
+-  return (
+-    <div className="App">
+-      <Router>
+-        <Route exact path="/">
+-          <Home />
+-        </Route>
+-        <Route exact path="/login">
+-          <Login />
+-        </Route>
+-        <Route exact path="/register">
+-          <Register />
+-        </Route>
+-        <Route exact path="/Chapbook">
+-          <Chapbook />
+-        </Route>
+-        <Route exact path="/CreateUser">
+-          <CreateUser />
+-        </Route>
+-        <Route exact path="/Dashboard"></Route>
+-        {/* <Navbar /> */}
+-       </Router>
+-     </div>
+-  );
+-};
++export default class App extends Component {
++  state = { issues: [], isLoading: false };
++
++  componentWillMount() {
++    this.iniitateData();
++  }
++  async iniitateData() {
++    const issuesData = await issuesService.fetchIssues();
++    this.setState({issues: issuesData.issues, isLoading: issuesData.isLoading})
++  }
++  render() {
++    return (
++      <div className="App">
++        <Navbar />
++        <Router>
++          <Route exact path="/">
++            <Home />
++          </Route>
++          <Route exact path="/login">
++            <Login />
++          </Route>
++          <Route exact path="/register">
++            <Register />
++          </Route>
++          <Route exact path="/Chapbook">
++            <Chapbook />
++          </Route>
++          <Route exact path="/CreateUser">
++            <CreateUser />
++          </Route>
++          <Route exact path="/Issues">
++            <Issues {...this.state}/>
++          </Route>
++          <Route exact path="/Issues/:id" render={(props) => <IssueDetails {...props} {...this.state} />}/>
++
+ 
+-export default App;
++          <Route exact path="/Dashboard"></Route>
++          {/* <Navbar /> */}
++        </Router>
++      </div>
++    );
++  }
++}
+diff --git a/laurel-review/src/components/Home.js b/laurel-review/src/components/Home.js
+index 440e1cc..68d512f 100644
+--- a/laurel-review/src/components/Home.js
++++ b/laurel-review/src/components/Home.js
+@@ -1,5 +1,4 @@
+ import React from "react";
+-import Navbar from "./Navbar";
+ import image from "../images/home.png"
+ import homeStyle from "./HomeStyle.css"
+ // import "../styles/HomeStyle.css";
+@@ -8,7 +7,6 @@ function Home() {
+   
+   return (
+     <div className="bg" >
+-      <Navbar />
+       <img src={image} className={homeStyle.photo} id="img"/>
+     </div>
+   );
+diff --git a/laurel-review/src/components/HomeStyle.css b/laurel-review/src/components/HomeStyle.css
+index 65945c5..78344b3 100644
+--- a/laurel-review/src/components/HomeStyle.css
++++ b/laurel-review/src/components/HomeStyle.css
+@@ -10,4 +10,8 @@
+ #background{
+   background-color: rgb(255, 255, 255);
+   color:black;
++}
++.MuiToolbar-root.MuiToolbar-gutters{
++  justify-content: space-between;
++  padding: 0 160px; 
+ }
+\ No newline at end of file
+diff --git a/laurel-review/src/components/Navbar.js b/laurel-review/src/components/Navbar.js
+index 55ffd0c..180ae55 100644
+--- a/laurel-review/src/components/Navbar.js
++++ b/laurel-review/src/components/Navbar.js
+@@ -7,32 +7,29 @@ import {
+   IconButton,
+   MenuIcon,
+ } from "@mui/material";
+-import HomeStyle from "./HomeStyle.css"
++import "./HomeStyle.css"
+ 
+ function Navbar() {
+   return (
+     <Box sx={{ flexGrow: 1 }}>
+       <AppBar position="static">
+         <Toolbar id="background">
+-          <IconButton
+-            size="large"
+-            edge="start"
+-            color="secondary"
+-            aria-label="menu"
+-            sx={{ mr: 2 }}
+-          >
+-            {/* <MenuIcon /> */}
+-          </IconButton>
+-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+-            The Laurel Review
+-          </Typography>
+-          <Button color="inherit">Submissions</Button>
+-          <Button color="inherit">Subscriptions</Button>
+-          <Button color="inherit">Issues</Button>
+-          <Button color="inherit">Chapbooks</Button>
+-          <Button color="inherit">Podcast</Button>
+-          <Button color="inherit">About us</Button>
+-          <Button color="inherit" href="./Login">Admin Login</Button>
++          <div className="laurel-header-logo">
++            
++
++            <Button color="inherit" href="../"><Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>The Laurel Review</Typography></Button>
++
++          </div>
++          <div className="laurel-header-nav">
++            <Button color="inherit">Submissions</Button>
++            <Button color="inherit">Subscriptions</Button>
++            <Button color="inherit" href="./Issues">Issues</Button>
++            <Button color="inherit">Chapbooks</Button>
++            <Button color="inherit">Podcast</Button>
++            <Button color="inherit">About us</Button>
++            <Button color="inherit" href="./Login">Admin Login</Button>
++          </div>
++          
+         </Toolbar>
+       </AppBar>
+     </Box>

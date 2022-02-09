@@ -22,7 +22,7 @@ function AdminBar() {
           >
             {/* <MenuIcon /> */}
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} href="http://localhost:3000/">
             The Laurel Review
           </Typography>
           <Button color="inherit" href="./home">Home</Button>
