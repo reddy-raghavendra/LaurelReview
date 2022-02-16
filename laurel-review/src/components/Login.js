@@ -5,12 +5,11 @@ import homeStyle from "./HomeStyle.css";
 function Login() {
   const history = useHistory();
 
- async function getUser() {
+ async function getUser(){
   var userData = {"email":document.getElementById("login").value,
                   "password":document.getElementById("password").value};
                   (async () => {
                     const element = document.querySelector('#post-request-async-await .article-id');              
-                    // const response = await axios.post('http://localhost:8081/api/login', userData);
                     await axios.post('http://localhost:8081/api/login', userData).then(
                       (response) => {
                         if(response.data === "Login Success"){
