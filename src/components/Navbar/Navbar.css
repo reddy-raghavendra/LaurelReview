@@ -1,0 +1,17 @@
+#img{
+  width: 100%;
+  height: 70%;
+  object-fit: contain;
+  overflow-x: hidden;
+  }
+#asterik{
+  color:red;
+}
+#background{
+  background-color: rgb(255, 255, 255);
+  color:black;
+}
+.MuiToolbar-root.MuiToolbar-gutters{
+  justify-content: space-between;
+  padding: 0 160px; 
+}
