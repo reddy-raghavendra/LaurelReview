@@ -82,8 +82,21 @@ export default function EditIssue() {
                 status: response.data.status,
                 imageFile:response.data.issueImage,
                 pdfFile: response.data.issueAttachment
-              }                        
+              } 
+              var i = 0
+              var length = Object.keys(response.data.issueDetails).length
+              var issueDetails = []
+              for (i = 0; i < length; i++) {
+                let detail = {
+                    id:response.data.issueDetails[i].issueInfoId,
+                    authorName:response.data.issueDetails[i].authorName,
+                    description:response.data.issueDetails[i].authorDescription,
+                    pageNo:response.data.issueDetails[i].pageNo
+                };   
+                issueDetails.push(detail)
+              }                    
               setAddFormData(formData) 
+              setRows(issueDetails)
           });
         //   console.log("iser: "+ userData)
     }

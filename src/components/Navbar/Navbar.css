@@ -15,3 +15,9 @@
   justify-content: space-between;
   padding: 0 160px; 
 }
+.buttonMui{
+  margin: 5px;
+}
+.MuiButtonBase-root{
+  margin:2px
+}

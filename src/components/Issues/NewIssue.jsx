@@ -69,7 +69,7 @@ export default function NewProduct() {
     storage
       .ref(`/images/${image.name}`)
       .put(image)
-      .on("state_changed", alert("success"), alert, () => {
+      .on("state_changed",() => {
         storage
           .ref("images")
           .child(image.name)
@@ -86,7 +86,7 @@ export default function NewProduct() {
     storage
       .ref(`/images/${pdf.name}`)
       .put(pdf)
-      .on("state_changed", alert, () => {
+      .on("state_changed", () => {
         storage
           .ref("images")
           .child(pdf.name)
@@ -138,7 +138,7 @@ export default function NewProduct() {
     let detail = {
       "issueInfoId": dataRows[i].id,
       "authorName": dataRows[i].authorName,
-      "authorDescription": dataRows[i].description,
+      "authorDescription": dataRows[i].authorDescription,
       "pageNo": dataRows[i].pageNo,
     };
     issueData.issueDetails.push(detail);
