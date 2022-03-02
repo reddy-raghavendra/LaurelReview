@@ -5,69 +5,80 @@ import "../Search/Search"
 
 
 export default function Dashboard() {
-    return (
-      <div className="Dashboard">
-        <div className="DashboardWrapper">
+  return (
+    <div className="Dashboard">
+      <div className="DashboardWrapper">
         <div className="DashboardMenu">
-            <h2 className="DashboardTitle">Issues</h2>
-            <ul className="DashboardList">
-              <Link to="/issuelist" className="link">
+          <h2 className="DashboardTitle">Issues</h2>
+          <ul className="DashboardList">
+            <Link to="/issuelist" className="link">
               <li className="DashboardListItem active">
                 Issues
               </li>
-              </Link>              
-            </ul>
-            <ul className="DashboardList">
-              <Link to="/products" className="link">
+            </Link>
+          </ul>
+          <ul className="DashboardList">
+            <Link to="/products" className="link">
               <li className="DashboardListItem active">
                 Chapbooks
               </li>
-              </Link>              
-            </ul>
-          </div>          
-          <div className="DashboardMenu">
-            <h2 className="DashboardTitle">Pages</h2>
-            <ul className="DashboardList">
+            </Link>
+          </ul>
+        </div>
+        <div className="DashboardMenu">
+          <h2 className="DashboardTitle">Pages</h2>
+          <ul className="DashboardList">
+            <div>
               <Link to="/" className="link">
-              <li className="DashboardListItem active">
-                Files
-              </li>
+                <li className="DashboardListItem active">
+                  Files
+                </li>
               </Link>
+            </div>
+            <div>
               <Link to="/AboutUs" className="link">
-              <li className="DashboardListItem active">
-                Aboutus
-              </li>
+                <li className="DashboardListItem active">
+                  Aboutus
+                </li>
               </Link>
-              <Link to="/" className="link">
+            </div>
+
+            <Link to="/" className="link">
               <li className="DashboardListItem active">
                 Podcast
               </li>
-              </Link>
-            </ul>
-          </div>
-          <div className="DashboardMenu">
-            <h2 className="DashboardTitle">Preferences</h2>
-            <ul className="DashboardList">
-              <Link to="/users" className="link">
+            </Link>
+
+          </ul>
+        </div>
+        <div className="DashboardMenu">
+          <h2 className="DashboardTitle">Preferences</h2>
+          <ul className="DashboardList">
+            <div>
+            <Link to="/users" className="link">
               <li className="DashboardListItem active">
                 Users
               </li>
-              </Link>
-              <Link to="/" className="link">
+            </Link>
+            </div>
+            <div>
+            <Link to="/" className="link">
               <li className="DashboardListItem active">
                 Roles
               </li>
-              </Link>
-              <Link to="/" className="link">
+            </Link>
+            </div>
+            
+            <Link to="/" className="link">
               <li className="DashboardListItem active">
                 About
               </li>
-              </Link>
-            </ul>
-          </div>
+            </Link>
+          </ul>
+        </div>
 
 
-          {/* <div className="DashboardMenu">
+        {/* <div className="DashboardMenu">
             <h2 className="DashboardTitle">Quick Menu</h2>
             <ul className="DashboardList">
               <Link to="/users" className="link">
@@ -116,8 +127,7 @@ export default function Dashboard() {
               </li>
             </ul>
           </div> */}
-        </div>
       </div>
-    );
-  }
-  
+    </div>
+  );
+}

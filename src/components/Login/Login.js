@@ -8,7 +8,7 @@ function Login() {
     async function getUser() {
         var userData = {
             "email": document.getElementById("login").value,
-            "password": document.getElementById("password").value
+            "password": document.getElementById("loginpassword").value
         };
         (async () => {
             try {
@@ -71,7 +71,7 @@ function Login() {
                                 <div class="form-outline mb-4">
                                     <input
                                         type="password"
-                                        id="password"
+                                        id="loginpassword"
                                         class="form-control form-control-lg"
                                     />
                                     <label class="form-label" for="form1Example23">
