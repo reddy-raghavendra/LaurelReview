@@ -15,6 +15,17 @@
   margin-right: 20px;
 }
 
+#password{
+  width: 87%;
+}
+#loginpassword{
+
+  width: 100%;
+}
+#email{
+  width: 87%;
+  text-align: 0%;
+}
 .newUserItem > label {
   margin-bottom: 10px;
   font-size: 14px;
@@ -23,8 +34,8 @@
 }
 
 .newUserItem > input {
-  height: 20px;
-  padding: 10px;
+  height: 31px;
+  padding: 13px;
   border: 1px solid gray;
   border-radius: 5px;
 }

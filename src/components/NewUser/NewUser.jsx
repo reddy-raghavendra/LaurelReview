@@ -76,27 +76,27 @@ export default function NewUser() {
       <form className="newUserForm">
         <div className="newUserItem">
           <label>First Name</label>
-          <input type="text" id="fName" placeholder="First Name" required="true" />
+          <input type="text" id="fName" align="left" placeholder="First Name" required="true" />
         </div>
         <div className="newUserItem">
           <label>Last Name</label>
-          <input type="text" id="lName" placeholder="Last name" required="true" />
+          <input type="text" id="lName" align="left" placeholder="Last name" required="true" />
         </div>
         <div className="newUserItem">
           <label>Email</label>
-          <input type="email" id="email" placeholder="john@email.com" required="true" />
+          <input type="email" id="email" align="left" placeholder="john@email.com" required="true" />
         </div>
         <div className="newUserItem">
           <label>Password</label>
-          <input type="password" id="password" placeholder="password" required="true" />
+          <input type="password" id="password" align="left" placeholder="password" required="true" />
         </div>
         <div className="newUserItem">
           <label>Phone</label>
-          <input type="text" id="phoneNo" placeholder="+1 123 456 78" required="true" />
+          <input type="text" id="phoneNo" align="left" placeholder="+1 123 456 78" required="true" />
         </div>
         <div className="newUserItem">
           <label>Address</label>
-          <input type="text" id="address" placeholder="New York | USA" required="true" />
+          <input type="text" id="address" align="left" placeholder="New York | USA" required="true" />
         </div>
         <div className="newUserItem">
           <label>Gender</label>
