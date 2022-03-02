@@ -1,0 +1,41 @@
+.laurel-issue-details-section{
+    padding: 24px 160px;
+}
+.laurel-issue-details-img{
+    width:20%;
+}
+.laurel-issue-details-img img{
+    height: 300px;
+    width: 100%;
+}
+.laurel-issue-details-img{
+    padding-right: 32px;
+}
+.laurel-issue-details{
+    display: flex;
+}
+.laurel-issue-details-content{
+    width: 80%;
+}
+.laurel-issue-details-header-content{
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #c7c7c7;
+}
+
+.laurel-issue {
+    display: inline-block;
+    width: 20%;
+}
+.table-row{
+    display: flex;
+    min-width: 800px;
+    width: 70%;
+}
+.table-cell{
+    width: 50%;
+    font-size: 21px;
+}
+.table-cell-key{
+    font-weight: bold;
+}

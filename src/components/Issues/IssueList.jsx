@@ -8,29 +8,57 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function ProductList() {
+  var issueList = []
+  const [data, setData] = useState(issueList);
+  React.useEffect(()=>{
+    getIssues()
+  },[])
 
-  const [data, setData] = useState(issueRows);
+  var issueData = {
+    "issueId":"",
+    "issueTitle": "",
+    "issueStock": 0,
+    "status": false,
+    "issueAttachment":"",
+    "issueImage": ""
+  }
+
+  function getIssues() {
+    const url = `http://localhost:8081/api/issues`;
+    console.log(url)
+    axios.get(url).then(
+          (response) => {
+              issueList = response.data
+              console.log("Response",issueList)
+
+              setData(issueList)
+          });
+    }
+
+    console.log("Data",data)
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    // setData(data.filter((item) => item.id !== id));
+    axios.delete(`http://localhost:8081/api/issues/delete/${id}`).then(()=>setData(data.filter((item) => item.issueId !== id)));
+    alert("Deleted Successfully")
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "issueId", headerName: "ID", width: 90 },
     {
-      field: "product",
+      field: "issueTitle",
       headerName: "Issue",
       width: 200,
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
-            {params.row.name}
+            <img className="productListImg" src={params.row.issueImage} alt="" />
+            {params.row.issueTitle}
           </div>
         );
       },
     },
-    { field: "stock", headerName: "Stock", width: 200 },
+    { field: "issueStock", headerName: "Stock", width: 200 },
     {
       field: "status",
       headerName: "Status",
@@ -43,12 +71,12 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/editissue/" + params.row.id}>
+            <Link to={{pathname:`/editissue/" + ${params.row.issueId}`,state:params.row.issueId}}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row.issueId)}
             />
           </>
         );
@@ -64,6 +92,7 @@ export default function ProductList() {
       </Link>
       <DataGrid
         rows={data}
+        getRowId ={(row) => row.issueId} 
         disableSelectionOnClick
         columns={columns}
         pageSize={8}

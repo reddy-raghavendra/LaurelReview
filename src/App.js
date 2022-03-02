@@ -2,6 +2,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Component } from "react";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import UserList from "./components/UserList/UserList";
@@ -14,9 +15,23 @@ import NewProduct from "./components/NewProduct/NewProduct";
 import IssueList from "./components/Issues/IssueList";
 import EditIssue from "./components/Issues/EditIssue";
 import NewIssue from "./components/Issues/NewIssue";
+import {Issues} from "./components/CustomerIssues/Issues";
+import issuesService from "./components/service/issues.service"
+import PdfView from "./components/PdfViewer/PdfView";
+import IssueDetails from "./components/CustomerIssues/IssueDetails/IssueDetails";
+import samplePdf from "./54.2.pdf"
 
-function App() {
+export default class App extends Component {
+  state = { issues: [], isLoading: false };
 
+  componentWillMount() {
+    this.iniitateData();
+  }
+  async iniitateData() {
+    const issuesData = await issuesService.fetchIssues();
+    this.setState({issues: issuesData.issues, isLoading: issuesData.isLoading})
+  }
+  render() {
   return (
     <Router>
       <Navbar />
@@ -27,6 +42,17 @@ function App() {
         <Route exact path="/login">
           <Login />
         </Route>
+        {/* <Route exact path="/issues"> */}
+          {/* <Issues/> */}
+        {/* </Route> */}
+        {/* <Route exact path="/issues/:issuedId"> */}
+          {/* <IssueDetails/> */}
+        {/* </Route> */}
+        <Route exact path="/Issues">
+            <Issues {...this.state}/>
+          </Route>
+          <Route exact path="/Issues/:id" render={(props) => <IssueDetails {...props} {...this.state} />}/>
+            <Route exact path="/Issues/:id/pdf"><PdfView pdf={samplePdf}/></Route>
         <div className="container">
           <Route path="/users">
             <Dashboard />
@@ -73,6 +99,7 @@ function App() {
 
     </Router>
   );
+  }
 }
 
-export default App
+// export default App
