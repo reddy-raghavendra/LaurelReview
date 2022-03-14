@@ -9,21 +9,22 @@ export default function Dashboard() {
     <div className="Dashboard">
       <div className="DashboardWrapper">
         <div className="DashboardMenu">
-          <h2 className="DashboardTitle">Issues</h2>
-          <ul className="DashboardList">
-            <Link to="/issuelist" className="link">
-              <li className="DashboardListItem active">
+          <h2 className="DashboardTitle">Content</h2>
+          <div>
+          <Link to="/issuelist" className="link">
+          <li className="DashboardListItem active">
                 Issues
               </li>
             </Link>
-          </ul>
-          <ul className="DashboardList">
+
+            </div>
+            <div>
             <Link to="/products" className="link">
               <li className="DashboardListItem active">
                 Chapbooks
               </li>
             </Link>
-          </ul>
+            </div>
         </div>
         <div className="DashboardMenu">
           <h2 className="DashboardTitle">Pages</h2>
@@ -42,8 +43,7 @@ export default function Dashboard() {
                 </li>
               </Link>
             </div>
-
-            <Link to="/" className="link">
+            <Link to="/podcastlist" className="link">
               <li className="DashboardListItem active">
                 Podcast
               </li>

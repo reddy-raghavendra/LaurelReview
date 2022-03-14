@@ -10,11 +10,11 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 export default function PdfView(props) {
   const { state } = useLocation();
   const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(state); //setting 1 to show fisrt page
+  const [pageNumber, setPageNumber] = useState(state.pageNo); //setting 1 to show fisrt page
 console.log("pageno",state)
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
-    setPageNumber(state);
+    setPageNumber(state.pageNo);
   }
 
   function changePage(offset) {
@@ -33,6 +33,16 @@ console.log("pageno",state)
   console.log(pdf)
 
   return (
+    <section className="float-container">
+    {/* <div className="laurel-issue-degtails-container"> */}
+    <div className="float-child">
+      <h2>{state.title}</h2>
+      {/* <div class = "laurel-issue-details-img"> */}
+      <img src={state.image}></img>
+      {/* </div> */}
+      <button class = "order-now" href="https://thelaurelreview.submittable.com/submit">Order Now</button>
+    </div>
+    <div className="float-pdf">
     <div class = "pdf">
       <Document
         file={pdf}
@@ -58,6 +68,9 @@ console.log("pageno",state)
           Next
         </button>
       </div>
+    {/* </div> */}
     </div>
+    </div>
+    </section>
   );
 }

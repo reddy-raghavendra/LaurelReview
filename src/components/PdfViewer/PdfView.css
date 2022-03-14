@@ -38,4 +38,42 @@
     max-height: 500px;
     overflow: auto;
   }
-  
+  /* .laurel-issue-details-img{
+    padding-right: 32px;
+}
+.laurel-issue-details-section{
+  padding: 24px 160px;
+}
+.laurel-issue-details-content{
+  width: 80%;
+} */
+
+.float-container {
+  padding: 20px;
+}
+
+.float-child {
+  width: 20%;
+  float: left;
+  padding: 10px;
+}  
+.float-pdf {
+  width: 80%;
+  float: left;
+  padding: 10px;
+}  
+.order-now {
+  background-color: #214dc5;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+/* .laurel-issue-details-img{
+ width: 60%;
+} */

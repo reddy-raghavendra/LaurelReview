@@ -1,5 +1,5 @@
 import React from 'react'
-import "./IssueList.css";
+import "./Podcastlist.css"
 import axios from "axios";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
@@ -87,8 +87,8 @@ export default function ProductList() {
   return (
     <div className="productList">
 
-      <Link to="/newissue">
-        <button className="issueAddButton">Create Issue</button>
+      <Link to="/newpodcast">
+        <button className="issueAddButton">Create Podcast</button>
       </Link>
       <DataGrid
         rows={data}

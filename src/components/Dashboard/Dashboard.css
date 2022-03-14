@@ -12,12 +12,13 @@
   }
   
   .DashboardMenu {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
   
   .DashboardTitle {
-    font-size: 13px;
-    color: rgb(187, 186, 186);
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(70, 69, 69);
   }
   
   .DashboardList {
@@ -35,7 +36,9 @@
   
   .DashboardListItem.active,
   .DashboardListItem:hover {
+    width: 100px;
     background-color: rgb(240, 240, 255);
+    margin:1px
   }
   
   .DashboardIcon{

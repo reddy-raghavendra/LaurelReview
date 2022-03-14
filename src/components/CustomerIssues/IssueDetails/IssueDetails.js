@@ -55,6 +55,7 @@ export default class IssueDetails extends Component{
                             <div className="laurel-issue-details">
                                 <div className="laurel-issue-details-img">
                                     <img src={issue.issueImage}></img>
+                                    <button class="order-now" onClick={"https://thelaurelreview.submittable.com/submit"}>Order Now</button>
                                 </div>
                                 <div className="laurel-issue-details-content">
                                     <div className="laurel-issue-details-header-content">
@@ -75,7 +76,7 @@ export default class IssueDetails extends Component{
                                                                 {/* <Link to={"/pdf/"+content.value}>
                                                                     {content.value}
                                                                 </Link> */}
-                                                                <div className="table-cell table-cell-value">{(issueDetails.pageNo ?<Link to={{pathname:`./${issue.issueId}/pdf`,state:issueDetails.pageNo}}>{issueDetails.authorDescription}</Link> : issueDetails.authorDescription )}</div>
+                                                                <div className="table-cell table-cell-value">{(issueDetails.pageNo ?<Link to={{pathname:`./${issue.issueId}/pdf`,state:{pageNo:issueDetails.pageNo,image:issue.issueImage,title:issue.issueTitle}}}>{issueDetails.authorDescription}</Link> : issueDetails.authorDescription )}</div>
                                                                 {/* <div className="table-cell table-cell-value">{(content.link ? <a href={"/pdf/"+content.value}></a> : content.value )}</div> */}
                                                             </div>
                                                         })

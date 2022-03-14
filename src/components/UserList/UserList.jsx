@@ -90,7 +90,7 @@ export default function UserList() {
             </Link>
             <DeleteOutline
               className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => { window.confirm("Are you sure you want to delete the user?")&&handleDelete(params.row.id)}}
             />
           </>
         );

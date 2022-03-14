@@ -12,12 +12,14 @@ import NewUser from "./components/NewUser/NewUser";
 import ProductList from "./components/ProductList/ProductList";
 import Product from "./components/Product/Product";
 import NewProduct from "./components/NewProduct/NewProduct";
+import PodCastList from "./components/PodCast/Podcastlist"
 import IssueList from "./components/Issues/IssueList";
 import EditIssue from "./components/Issues/EditIssue";
 import NewIssue from "./components/Issues/NewIssue";
 import {Issues} from "./components/CustomerIssues/Issues";
 import issuesService from "./components/service/issues.service"
 import PdfView from "./components/PdfViewer/PdfView";
+import NewPodCast from "./components/PodCast/NewPodCast"
 import IssueDetails from "./components/CustomerIssues/IssueDetails/IssueDetails";
 import samplePdf from "./54.2.pdf"
 
@@ -94,6 +96,15 @@ export default class App extends Component {
             <Dashboard />
             <NewIssue />
           </Route>  
+          <Route path="/podcastlist">
+            <Dashboard />
+            <PodCastList />
+          </Route>  
+          <Route path="/newpodcast">
+            <Dashboard />
+            <NewPodCast />
+          </Route>  
+          
         </div>        
         </Switch>
 
