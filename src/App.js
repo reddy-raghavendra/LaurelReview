@@ -22,6 +22,7 @@ import PdfView from "./components/PdfViewer/PdfView";
 import NewPodCast from "./components/PodCast/NewPodCast"
 import IssueDetails from "./components/CustomerIssues/IssueDetails/IssueDetails";
 import samplePdf from "./54.2.pdf"
+import EditPodCast from "./components/PodCast/EditPodCast";
 
 export default class App extends Component {
   state = { issues: [], isLoading: false };
@@ -103,6 +104,10 @@ export default class App extends Component {
           <Route path="/newpodcast">
             <Dashboard />
             <NewPodCast />
+          </Route>  
+          <Route path="/editpodcast/:podcastid">
+            <Dashboard />
+            <EditPodCast />
           </Route>  
           
         </div>        
