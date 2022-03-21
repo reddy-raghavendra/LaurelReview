@@ -128,3 +128,18 @@
     font-weight: 600;
     cursor: pointer;
   }
+  .productListImg {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+  }
+
+.productListEdit{
+    border: none;
+    padding: 5px 10px;
+    background-color: #3bb077;
+    color: white;
+    cursor: pointer;
+    width: 70px;
+    margin-bottom: 6px;
+}

@@ -1,29 +1,114 @@
 import "./NewPodCast.css";
+import storage from "../Firebase/Firebase";
 import React from 'react'
 import axios from "axios";
+import { useState } from "react";
 import Alert from 'react-popup-alert'
-export default function NewUser() {
+import { useHistory } from "react-router-dom";
+export default function NewPodCast() {
+    const history = useHistory()
+    const [imageUrl, setImageUrl] = useState("");
+    const [audioUrl, setAudioUrl] = useState("");
+    const [formData,setFormData] = useState({
+        podcastName:"",
+        podcastDesc: "",
+        podcastDate: "",
+        podcastAudioFile: "",
+        podcastCoverImage: ""
+    });
+    const handleFormAddChange = (event) => {
+        event.preventDefault();
+        debugger
+        const fieldName = event.target.getAttribute("name");
+        const fieldValue = event.target.value;
+        const newFormData = { ...formData };
+        newFormData[fieldName] = fieldValue;
+        setFormData(newFormData);
+      };
+    const handleImageFile = async (event) => {
+        var image = event.target.files[0];
+        if (image == null) return;
+    
+        storage
+          .ref(`/images/${image.name}`)
+          .put(image)
+          .on("state_changed",() => {
+            storage
+              .ref("images")
+              .child(image.name)
+              .getDownloadURL()
+              .then((url) => {
+                setImageUrl(url);
+              });
+          });
+      };
+      const handleAudioFile = async (event) => {
+        var audio = event.target.files[0];
+        if (audio == null) return;
+    
+        storage
+          .ref(`/audios/${audio.name}`)
+          .put(audio)
+          .on("state_changed",() => {
+            storage
+              .ref("audios")
+              .child(audio.name)
+              .getDownloadURL()
+              .then((url) => {
+                setAudioUrl(url);
+              });
+          });
+      };
+
+      const sendData = (event) => {
+        event.preventDefault();
+        debugger
+        const newFormData = {...formData};
+        let podcastCoverImage = {imageUrl};
+        let podcastAudioFile = {audioUrl};
+        newFormData.podcastCoverImage = podcastCoverImage.imageUrl;
+        newFormData.podcastAudioFile = podcastAudioFile.audioUrl;
+
+    
+        (async () => {
+          const element = document.querySelector(
+            "#post-request-async-await .article-id"
+          );
+          const response = await axios.post(
+            "http://localhost:8081/api/podcast/save",
+            newFormData
+          );
+          if(response.status == 200){
+            alert("Podcast saved successfully")
+            history.push("/podcasts") 
+          }
+        })();
+      };
   return (
     <div className="newUser">
-      <h1 className="newUserTitle">New Podcast</h1>
+      <h1 className="newUserTitle">Create Podcast</h1>
       <form className="newUserForm">
         <div className="newUserItem">
           <label>Name Of the Podcast</label>
-          <input type="text" id="podcastName" align="left" placeholder="Podcast name" required="true" />
+          <input type="text" id="podcastName" name="podcastName" align="left" placeholder="Podcast name" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
           <label>Date</label>
-          <input type="date" id="date" align="left" placeholder="Date" required="true" />
+          <input type="date" id="date" name="podcastDate" align="left" placeholder="Date" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
           <label>Audio file</label>
-          <input type="file" id="audio" align="left"  required="true" />
+          <input type="file" id="audio" name="podcastAudioFile" align="left"  required="true" onChange={handleAudioFile}/>
         </div>
         <div className="newUserItem">
           <label>Cover Image</label>
-          <input type="file" id="image" align="left" required="true" />
+          <input type="file" id="image" name="podcastCoverImage" align="left" required="true" onChange={handleImageFile}/>
         </div>
-        <button className="newUserButton">Create</button>
+        <div className="newUserItem">
+          <label>Description of the podcast</label>
+          <input type="textarea" id="textArea" name="podcastDesc" align="left" required="true" onChange={handleFormAddChange}/>
+        </div>
+        <button className="newUserButton" onClick={sendData}>Create</button>
       </form>
     </div>
   );

@@ -68,7 +68,7 @@ export default function EditIssue() {
   const history = useHistory()
   const { state } = useLocation();
 
-  async function  getUser() {
+  async function  getIssue() {
 
     const url = `http://localhost:8081/api/issues/${state}`;
     console.log(url)
@@ -101,7 +101,7 @@ export default function EditIssue() {
         //   console.log("iser: "+ userData)
     }
   React.useEffect(()=>{
-    getUser()
+    getIssue()
   },[])
 
   const handleImageFile = async (event) => {
