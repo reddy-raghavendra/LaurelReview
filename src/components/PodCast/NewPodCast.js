@@ -98,7 +98,7 @@ export default function NewPodCast() {
         </div>
         <div className="newUserItem">
           <label>Audio file</label>
-          <input type="file" id="audio" name="podcastAudioFile" align="left"  required="true" onChange={handleAudioFile}/>
+          <input type="file" id="audio" name="podcastAudioFile" align="left"  required="true" accept=".mp3,audio/*" onChange={handleAudioFile}/>
         </div>
         <div className="newUserItem">
           <label>Cover Image</label>
@@ -106,7 +106,7 @@ export default function NewPodCast() {
         </div>
         <div className="newUserItem">
           <label>Description of the podcast</label>
-          <input type="textarea" id="textArea" name="podcastDesc" align="left" required="true" onChange={handleFormAddChange}/>
+          <textarea type="textarea" id="textArea" name="podcastDesc" align="left" required="true" onChange={handleFormAddChange}/>
         </div>
         <button className="newUserButton" onClick={sendData}>Create</button>
       </form>
