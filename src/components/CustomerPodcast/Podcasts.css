@@ -1,0 +1,12 @@
+.laurel-poscast-img{
+    width:20%;
+}
+.laurel-podcast-section{
+    padding: 24px 160px;
+}
+.laurel-podcast-details{
+    display: flex;
+}
+.laurel-pocast-details-content{
+    width: 80%;
+}

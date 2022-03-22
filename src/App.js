@@ -23,6 +23,7 @@ import issuesService from "./components/service/issues.service"
 import PdfView from "./components/PdfViewer/PdfView";
 import NewPodCast from "./components/PodCast/NewPodCast"
 import IssueDetails from "./components/CustomerIssues/IssueDetails/IssueDetails";
+import Podcasts from "./components/CustomerPodcast/Podcasts"
 import samplePdf from "./54.2.pdf"
 import EditPodCast from "./components/PodCast/EditPodCast";
 
@@ -55,8 +56,12 @@ export default class App extends Component {
         <Route exact path="/Issues">
             <Issues {...this.state}/>
           </Route>
-          <Route exact path="/Issues/:id" render={(props) => <IssueDetails {...props} {...this.state} />}/>
-            <Route exact path="/Issues/:id/pdf"><PdfView pdf={samplePdf}/></Route>
+          <Route exact path="/Podcasts">
+            <Podcasts/>
+          </Route>
+        <Route exact path="/Issues/:id" render={(props) => <IssueDetails {...props} {...this.state} />}/>
+        <Route exact path="/Issues/:id/pdf"><PdfView pdf={samplePdf}/></Route>
+        
         <div className="container">
           <Route path="/users">
             <Dashboard />
