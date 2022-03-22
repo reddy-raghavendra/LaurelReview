@@ -37,7 +37,7 @@ export default function Dashboard() {
               </Link>
             </div>
             <div>
-              <Link to="/AboutUs" className="link">
+              <Link to="/AboutUsList" className="link">
                 <li className="DashboardListItem active">
                   Aboutus
                 </li>

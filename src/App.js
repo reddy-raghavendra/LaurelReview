@@ -6,7 +6,9 @@ import { Component } from "react";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import UserList from "./components/UserList/UserList";
-import AboutUs from "./components/AboutUs/AboutUs";
+import AboutUsList from "./components/AboutUs/AboutUsList";
+import NewAboutUs from "./components/AboutUs/NewAboutUs";
+import EditAboutUs from "./components/AboutUs/EditAboutUs";
 import User from "./components/User/User";
 import NewUser from "./components/NewUser/NewUser";
 import ProductList from "./components/ProductList/ProductList";
@@ -61,9 +63,17 @@ export default class App extends Component {
             <Dashboard />
             <UserList />
           </Route>
-          <Route path="/aboutUs">
+          <Route path="/AboutUsList">
             <Dashboard />
-            <AboutUs />
+            <AboutUsList />
+          </Route>
+          <Route path="/NewAboutUs">
+            <Dashboard />
+            <NewAboutUs />
+          </Route>
+          <Route path="/EditAboutUs">
+            <Dashboard />
+            <EditAboutUs />
           </Route>
           <Route path="/user/:userId">
             <Dashboard />
