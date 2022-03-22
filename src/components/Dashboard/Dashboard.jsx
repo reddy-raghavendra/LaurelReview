@@ -25,7 +25,7 @@ export default function Dashboard() {
               </li>
             </Link>
             </div>
-            
+
         </div>
         <div className="DashboardMenu">
           <h2 className="DashboardTitle">Pages</h2>
@@ -77,7 +77,6 @@ export default function Dashboard() {
             </Link>
           </ul>
         </div>
-
 
         {/* <div className="DashboardMenu">
             <h2 className="DashboardTitle">Quick Menu</h2>

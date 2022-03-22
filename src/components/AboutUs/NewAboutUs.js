@@ -15,7 +15,7 @@ export default function NewAboutUs() {
       AboutUsDesc: "",
       AboutUsCoverImage: ""
     });
-    
+
     const handleFormAddChange = (event) => {
         event.preventDefault();
         debugger

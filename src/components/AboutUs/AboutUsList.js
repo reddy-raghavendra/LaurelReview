@@ -12,7 +12,7 @@ export default function AboutUsList() {
   React.useEffect(()=>{
     getAboutUs()
   },[])
-  
+
   function getAboutUs() {
     const url = `http://localhost:8081/api/AboutUs`;
     console.log(url)

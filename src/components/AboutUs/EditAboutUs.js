@@ -115,7 +115,6 @@ const handleImageFile = async (event) => {
     })();
   };
   
-  
   return (
     <div className="newUser">
       <h1 className="newUserTitle">Create AboutUs</h1>

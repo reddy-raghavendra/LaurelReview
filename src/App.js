@@ -28,8 +28,6 @@ import EditPodCast from "./components/PodCast/EditPodCast";
 
 export default class App extends Component {
   state = { issues: [], isLoading: false };
-
-  
   componentWillMount() {
     this.iniitateData();
   }
