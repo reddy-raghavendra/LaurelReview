@@ -117,7 +117,7 @@ const handleImageFile = async (event) => {
   
   return (
     <div className="newUser">
-      <h1 className="newUserTitle">Create Podcast</h1>
+      <h1 className="newUserTitle">Edit Podcast</h1>
       <form className="newUserForm">
         <div className="newUserItem">
           <label>Name Of the Podcast</label>
