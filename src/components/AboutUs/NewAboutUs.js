@@ -9,13 +9,13 @@ import { useHistory } from "react-router-dom";
 export default function NewAboutUs() {
     const history = useHistory()
     const [imageUrl, setImageUrl] = useState("");
-   
     const [formData,setFormData] = useState({
       AboutUsName:"",
       AboutUsRole:"",
       AboutUsDesc: "",
       AboutUsCoverImage: ""
     });
+    
     const handleFormAddChange = (event) => {
         event.preventDefault();
         debugger

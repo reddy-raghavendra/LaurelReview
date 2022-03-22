@@ -50,6 +50,7 @@
   font-weight: 600;
   color: rgb(151, 150, 150);
 }
+
 .newUserTextArea > input {
   height: 54px;
   padding: 13px;
@@ -57,6 +58,7 @@
   border: 1px solid gray;
   border-radius: 5px;
 }
+
 .newUserGender > input {
   margin-top: 15px;
 }
