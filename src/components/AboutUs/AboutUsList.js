@@ -68,7 +68,7 @@ export default function AboutUsList() {
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => { window.confirm("Are you sure you want to delete this issue?")&&handleDelete(params.row.AboutUsId)}}
+              onClick={() => { window.confirm("Are you sure you want to delete this Data?")&&handleDelete(params.row.AboutUsId)}}
             />
           </>
         );
