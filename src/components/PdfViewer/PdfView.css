@@ -13,7 +13,9 @@
     cursor: pointer;
     box-shadow: 2px 2px 2px 1px #ccc;
   }
-  
+  .issue-image{
+    width:100%;
+  }
   /* For pdf */
   .react-pdf__Page {
     margin-top: 10px;

@@ -4,6 +4,9 @@ import { Constants } from "../../../Constants";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+function navigateToThirdParty(){
+    window.open("https://thelaurelreview.submittable.com/submit")
+}
 export default class IssueDetails extends Component{
     state = {
         issue: null,
@@ -21,6 +24,7 @@ export default class IssueDetails extends Component{
         this.setState({ isLoading: true });
         this.getIssuesData();
     }
+
     async getIssuesData() {
         axios.get(`${Constants.apis.get_issues}/${this.issueVersion}`).then(
             (response) => {
@@ -55,7 +59,7 @@ export default class IssueDetails extends Component{
                             <div className="laurel-issue-details">
                                 <div className="laurel-issue-details-img">
                                     <img src={issue.issueImage}></img>
-                                    <button class="order-now" onClick={"https://thelaurelreview.submittable.com/submit"}>Order Now</button>
+                                    <button class="order-now" onClick={navigateToThirdParty}>Order Now</button>
                                 </div>
                                 <div className="laurel-issue-details-content">
                                     <div className="laurel-issue-details-header-content">

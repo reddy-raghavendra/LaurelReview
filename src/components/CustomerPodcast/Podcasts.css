@@ -1,12 +1,25 @@
-.laurel-poscast-img{
-    width:20%;
+.laurel-podcast-img{
+    width:30%;
 }
 .laurel-podcast-section{
     padding: 24px 160px;
 }
 .laurel-podcast-details{
     display: flex;
+    margin-left: 5px;
 }
-.laurel-pocast-details-content{
-    width: 80%;
+.laurel-podcast-details-content{
+    width: 70%;
+}
+.cover-podcast-image{
+    float: left;
+    width:  200px;
+    height: 400px;
+    object-fit: cover;
+}
+.podcast-name{
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+    font-weight: bold;
+    text-transform: uppercase;
 }

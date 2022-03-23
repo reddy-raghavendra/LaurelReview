@@ -25,7 +25,7 @@ function Navbar() {
             <Button color="inherit">Subscriptions</Button>
             <Button color="inherit" href="./Issues">Issues</Button>
             <Button color="inherit">Chapbooks</Button>
-            <Button color="inherit">Podcast</Button>
+            <Button color="inherit" href="./podcasts">Podcast</Button>
             <Button color="inherit">About us</Button>
           </div>
 

@@ -1,8 +1,10 @@
 import React from "react";
 import "./Podcasts.css";
+import "./AudioFile.css"
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { AudioPlayer } from "../AudioPlayer/AudioPlayer";
 
 export default function Podcasts() {
   var podCastList = [];
@@ -25,15 +27,20 @@ export default function Podcasts() {
     });
   }
   return data.map((pod) => (
-    <div className="laurel-podcast-section">
+    <section className="laurel-podcast-section">
       <div className="laurel-podcast-details">
-        <img className="laurel-podcast-img" src={pod.podcastCoverImage}></img>
-        {/* <div className="laurel-pocast-details-content">
-          <h3>{pod.podcastName}</h3>
-          <h4>{pod.podcastDate}</h4>
+        <div className="laurel-podcast-img">
+        <img className="cover-podcast-image" src={pod.podcastCoverImage}></img>
+        </div>
+        <div className="laurel-podcast-details-content">
+          <h3 className="podcast-name">{pod.podcastName}</h3>
+          <p>{pod.podcastDate}</p>
           <p>{pod.podcastDesc}</p>
-        </div> */}
+          <div className="main">
+          <AudioPlayer props={pod.podcastAudioFile}></AudioPlayer>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   ));
 }
