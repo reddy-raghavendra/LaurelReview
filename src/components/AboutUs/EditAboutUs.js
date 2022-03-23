@@ -8,8 +8,16 @@ import { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-
-export default function EditPodCast() {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {social} from "./Social.css"
+import {
+  faYoutube,
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
+export default function EditAboutUS() {
 
   const history = useHistory()
   const [imageUrl, setImageUrl] = useState("");
@@ -95,9 +103,9 @@ const handleImageFile = async (event) => {
     debugger
     const newFormData = {...formData};
     let AboutUsCoverImage = {imageUrl};
-    let AboutUsAudioFile = {audioUrl};
+
     newFormData.AboutUsCoverImage = AboutUsCoverImage.imageUrl;
-    newFormData.AboutUsAudioFile = AboutUsAudioFile.audioUrl;
+
 
 
     (async () => {
@@ -117,23 +125,56 @@ const handleImageFile = async (event) => {
   
   return (
     <div className="newUser">
-      <h1 className="newUserTitle">Create AboutUs</h1>
+      <h1 className="newUserTitle">AboutUs</h1>
       <form className="newUserForm">
+      
+  
         <div className="newUserItem">
           <label>Name</label>
-          <input type="text" id="AboutUsName" value={formData.AboutUsName} name="AboutUsName" align="left" placeholder="name" required="true" onChange={handleFormAddChange}/>
+          <input type="text" id="AboutUsName" name="AboutUsName" align="left" placeholder="Name" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
+          <label>Role</label>
+          <input type="text" id="AboutUsRole" name="AboutUsRole" align="left" placeholder="Role" required="true" onChange={handleFormAddChange}/>
+        </div>
+      
+        <div className="newUserItem">
           <label>Image</label>
-          <img className="productListImg" src={formData.AboutUsCoverImage}></img>
           <input type="file" id="image" name="AboutUsCoverImage" align="left" required="true" onChange={handleImageFile}/>
         </div>
         <div className="newUserItem">
           <label>Description</label>
-          <input type="textarea" id="textArea" name="AboutUsDesc" value={formData.AboutUsDesc} align="left" required="true" onChange={handleFormAddChange}/>
+          <input type="text" id="textArea" name="AboutUsDesc" align="left" placeholder="Description" required="true" onChange={handleFormAddChange}/>
+        </div>
+        
+        <div className="newUserItem">
+          <div className="instagram social">
+        <FontAwesomeIcon icon={faInstagram} size="2x" />
+        <label>Instagram</label>
+        </div>
+          <input type="text" id="textArea" name="Instagram" align="left" placeholder="Instagram" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
-         </div> 
+          <div className = "facebook social">
+        <FontAwesomeIcon icon={faFacebook} size="2x" />
+        <label>Facebook</label>
+        </div>
+          <input type="text" id="textArea" name="Facebook" align="left" placeholder="Facebook" required="true" onChange={handleFormAddChange}/>
+        </div>
+        <div className="newUserItem">
+          <div className="twitter social">
+        <FontAwesomeIcon icon={faTwitter} size="2x" />
+        <label>Twitter</label>
+        </div>
+          <input type="text" id="textArea" name="Twitter" align="left" placeholder="Twitter" required="true" onChange={handleFormAddChange}/>
+        </div>
+        <div className="newUserItem">
+          <div className="youtube social">
+        <FontAwesomeIcon icon={faYoutube} size="2x" />
+        <label>Youtube</label>
+        </div>
+          <input type="text" id="textArea" name="Youtube" align="left" placeholder="Youtube" required="true" onChange={handleFormAddChange}/>
+        </div>
         <button className="newUserButton" onClick={sendData}>Update</button>
         <button className="newUserButton" onClick={sendData}>Cancel</button>
       </form>
