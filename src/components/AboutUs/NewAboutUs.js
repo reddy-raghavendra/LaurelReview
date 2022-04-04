@@ -20,10 +20,10 @@ export default function NewAboutUs() {
     const history = useHistory()
     const [imageUrl, setImageUrl] = useState("");
     const [formData,setFormData] = useState({
-      AboutUsName:"",
-      AboutUsRole:"",
-      AboutUsDesc: "",
-      AboutUsCoverImage: ""
+      aboutUsName:"",
+      aboutUsRole:"",
+      aboutUsDesc: "",
+      aboutUsCoverImage: ""
     });
 
     const handleFormAddChange = (event) => {
@@ -59,7 +59,7 @@ export default function NewAboutUs() {
         debugger
         const newFormData = {...formData};
         let AboutUsCoverImage = {imageUrl};
-        newFormData.AboutUsCoverImage = AboutUsCoverImage.imageUrl;
+        newFormData.aboutUsCoverImage = AboutUsCoverImage.imageUrl;
 
     
         (async () => {
@@ -67,37 +67,35 @@ export default function NewAboutUs() {
             "#post-request-async-await .article-id"
           );
           const response = await axios.post(
-            "http://localhost:8081/api/AboutUs/save",
+            "http://localhost:8081/api/aboutus/save",
             newFormData
           );
           if(response.status == 200){
             alert("AboutUs saved successfully")
-            history.push("/AboutUs") 
+            history.push("/AboutUsList") 
           }
         })();
       };
   return (
     <div className="newUser">
       <h1 className="newUserTitle">AboutUs</h1>
-      <form className="newUserForm">
-      
-  
+      <form className="newUserForm">      
         <div className="newUserItem">
           <label>Name</label>
-          <input type="text" id="AboutUsName" name="AboutUsName" align="left" placeholder="Name" required="true" onChange={handleFormAddChange}/>
+          <input type="text" id="aboutUsName" name="aboutUsName" align="left" placeholder="Name" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
           <label>Role</label>
-          <input type="text" id="AboutUsRole" name="AboutUsRole" align="left" placeholder="Role" required="true" onChange={handleFormAddChange}/>
+          <input type="text" id="aboutUsRole" name="aboutUsRole" align="left" placeholder="Role" required="true" onChange={handleFormAddChange}/>
         </div>
       
         <div className="newUserItem">
           <label>Image</label>
-          <input type="file" id="image" name="AboutUsCoverImage" align="left" required="true" onChange={handleImageFile}/>
+          <input type="file" id="aboutUsCoverImage" name="aboutUsCoverImage" align="left" required="true" onChange={handleImageFile}/>
         </div>
         <div className="newUserItem">
           <label>Description</label>
-          <input type="text" id="textArea" name="AboutUsDesc" align="left" placeholder="Description" required="true" onChange={handleFormAddChange}/>
+          <input type="text" id="textArea" name="aboutUsDesc" align="left" placeholder="Description" required="true" onChange={handleFormAddChange}/>
         </div>
         
         <div className="newUserItem">

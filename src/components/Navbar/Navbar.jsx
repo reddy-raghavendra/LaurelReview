@@ -7,7 +7,8 @@ import {
   IconButton,
   MenuIcon,
 } from "@mui/material";
-import "./Navbar.css"
+import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -15,20 +16,37 @@ function Navbar() {
       <AppBar position="static">
         <Toolbar id="background">
           <div className="laurel-header-logo">
-
-
-            <Button color="inherit" href="../"><Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>The Laurel Review</Typography></Button>
-
+            <Button color="inherit" href="../">
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                The Laurel Review
+              </Typography>
+            </Button>
           </div>
           <div className="MuiToolbar-root.MuiToolbar-gutters">
-            <Button color="inherit" href="https://thelaurelreview.submittable.com/submit">Submissions</Button>
-            <Button color="inherit">Subscriptions</Button>
-            <Button color="inherit" href="./Issues">Issues</Button>
-            <Button color="inherit">Chapbooks</Button>
-            <Button color="inherit" href="./podcasts">Podcast</Button>
-            <Button color="inherit">About us</Button>
+            <Link
+              to={{
+                pathname: "https://thelaurelreview.submittable.com/submit",
+              }}
+              target="_blank"
+            >
+              <Button color="inherit">Submissions</Button>
+            </Link>
+            <Link to="/Issues">
+              <Button color="inherit">Subscriptions</Button>
+            </Link>
+            <Link to="/Issues">
+              <Button color="inherit">Issues</Button>
+            </Link>
+            <Link to="/Issues">
+              <Button color="inherit">Chapbooks</Button>
+            </Link>
+            <Link to="/podcasts">
+              <Button color="inherit">Podcast</Button>
+            </Link>
+            <Link to="/aboutus">
+              <Button color="inherit">About us</Button>
+            </Link>
           </div>
-
         </Toolbar>
       </AppBar>
     </Box>

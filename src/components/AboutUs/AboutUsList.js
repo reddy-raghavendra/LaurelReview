@@ -14,47 +14,38 @@ export default function AboutUsList() {
   },[])
 
   function getAboutUs() {
-    const url = `http://localhost:8081/api/AboutUs`;
+    const url = `http://localhost:8081/api/aboutus`;
     console.log(url)
     axios.get(url).then(
           (response) => {
             AboutUsList = response.data
-              console.log("Response",AboutUsList)
-              var list = AboutUsList
-             list.forEach(About => {
-               About.buttonText = "Play";
-               About.audio = ""
-             });
-             setData(list)
+            console.log("Response",AboutUsList)
+            setData(AboutUsList)
           });
     }
 
-
-
-    console.log("Data",data)
-
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8081/api/AboutUs/delete/${id}`).then(()=>setData(data.filter((item) => item.issueId !== id)));
+    axios.delete(`http://localhost:8081/api/aboutus/delete/${id}`).then(()=>setData(data.filter((item) => item.aboutUsId !== id)));
     alert("Deleted Successfully")
   };
 
   const columns = [
-    { field: "AboutUsId", headerName: "ID", width: 90 },
+    { field: "aboutUsId", headerName: "ID", width: 90 },
     {
-      field: "AboutUsCoverImage",
-      headerName: "AboutUs",
+      field: "aboutUsName",
+      headerName: "Name",
       width: 200,
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={params.row.AboutUsListCoverImage} alt="" />
-            {params.row.AboutUsName}
+            <img className="productListImg" src={params.row.aboutUsCoverImage} alt="" />
+            {params.row.aboutUsName}
           </div>
         );
       },
     },
-    { field: "AboutUsName", headerName: "Name", width: 200 },
-    { field: "AboutUsRole", headerName: "Role", width: 200 },
+    { field: "aboutUsRole", headerName: "Role", width: 200 },
+    // { field: "aboutUsRole", headerName: "Role", width: 200 },
     
     {
       field: "action",
@@ -68,7 +59,7 @@ export default function AboutUsList() {
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => { window.confirm("Are you sure you want to delete this Data?")&&handleDelete(params.row.AboutUsId)}}
+              onClick={() => { window.confirm("Are you sure you want to delete this Data?")&&handleDelete(params.row.aboutUsId)}}
             />
           </>
         );
@@ -84,7 +75,7 @@ export default function AboutUsList() {
       </Link>
       <DataGrid
         rows={data}
-        getRowId ={(row) => row.AboutUsId} 
+        getRowId ={(row) => row.aboutUsId} 
         // disableSelectionOnClick
         columns={columns}
         pageSize={8}

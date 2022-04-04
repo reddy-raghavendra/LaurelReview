@@ -80,7 +80,7 @@ export default function NewPodCast() {
           );
           if(response.status == 200){
             alert("Podcast saved successfully")
-            history.push("/podcasts") 
+            history.push("/podcastlist") 
           }
         })();
       };
