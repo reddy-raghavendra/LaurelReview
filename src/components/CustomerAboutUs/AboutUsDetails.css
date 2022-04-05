@@ -1,0 +1,39 @@
+.laurel-aboutus-img{
+    width:40%;
+}
+.laurel-aboutus-section{
+    padding: 24px 160px;
+}
+.laurel-aboutus-details{
+    display: flex;
+    margin-left: 1px;
+}
+.laurel-aboutus-details-content{
+    width: 60%;
+}
+.cover-aboutus-image{
+    float: left;
+    width: 80%;
+    height:80%;
+    object-fit: cover;
+}
+.cover-aboutus-social{
+    float: left;
+    width: 80%;
+    height:20%;
+    
+}
+.aboutus-pos{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    color: gray;
+}
+.aboutus-desc{
+    font-family:sans-serif;
+}
+.aboutus-name{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-weight:600;
+    text-transform: capitalize;
+}

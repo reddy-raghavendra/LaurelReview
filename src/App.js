@@ -19,6 +19,7 @@ import IssueList from "./components/Issues/IssueList";
 import EditIssue from "./components/Issues/EditIssue";
 import NewIssue from "./components/Issues/NewIssue";
 import {Issues} from "./components/CustomerIssues/Issues";
+import AboutUsDetails from "./components/CustomerAboutUs/AboutUsDetails";
 import issuesService from "./components/service/issues.service"
 import PdfView from "./components/PdfViewer/PdfView";
 import NewPodCast from "./components/PodCast/NewPodCast"
@@ -58,6 +59,9 @@ export default class App extends Component {
           </Route>
           <Route exact path="/Podcasts">
             <Podcasts/>
+          </Route>
+          <Route exact path="/aboutus">
+            <AboutUsDetails/>
           </Route>
         <Route exact path="/Issues/:id" render={(props) => <IssueDetails {...props} {...this.state} />}/>
         <Route exact path="/Issues/:id/pdf"><PdfView pdf={samplePdf}/></Route>

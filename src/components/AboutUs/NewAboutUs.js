@@ -12,6 +12,7 @@ import {
   faYoutube,
   faFacebook,
   faTwitter,
+  faWordpress,
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
@@ -23,7 +24,11 @@ export default function NewAboutUs() {
       aboutUsName:"",
       aboutUsRole:"",
       aboutUsDesc: "",
-      aboutUsCoverImage: ""
+      aboutUsCoverImage: "",
+      wordPressLink:"",
+      twitterLink:"",
+      faceBookLink:"",
+      instagramLink:""
     });
 
     const handleFormAddChange = (event) => {
@@ -103,28 +108,28 @@ export default function NewAboutUs() {
         <FontAwesomeIcon icon={faInstagram} size="2x" />
         <label>Instagram</label>
         </div>
-          <input type="text" id="textArea" name="Instagram" align="left" placeholder="Instagram" required="true" onChange={handleFormAddChange}/>
+          <input type="text" id="textArea" name="instagramLink" align="left" placeholder="Instagram" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
           <div className = "facebook social">
         <FontAwesomeIcon icon={faFacebook} size="2x" />
         <label>Facebook</label>
         </div>
-          <input type="text" id="textArea"   pattern="https://.*" size="30" name="Facebook" align="left" placeholder="Facebook" required="true" onChange={handleFormAddChange}/>
+          <input type="text" id="textArea"   pattern="https://.*" size="30" name="faceBookLink" align="left" placeholder="Facebook" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
           <div className="twitter social">
         <FontAwesomeIcon icon={faTwitter} size="2x" />
         <label>Twitter</label>
         </div>
-          <input type="text" id="textArea" name="Twitter" align="left" placeholder="Twitter" required="true" onChange={handleFormAddChange}/>
+          <input type="text" id="textArea" name="twitterLink" align="left" placeholder="Twitter" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
           <div className="youtube social">
-        <FontAwesomeIcon icon={faYoutube} size="2x" />
-        <label>Youtube</label>
+        <FontAwesomeIcon icon={faWordpress} size="2x" />
+        <label>WordPress</label>
         </div>
-          <input type="text" id="textArea" name="Youtube" align="left" placeholder="Youtube" required="true" onChange={handleFormAddChange}/>
+          <input type="text" id="textArea" name="wordPressLink" align="left" placeholder="Youtube" required="true" onChange={handleFormAddChange}/>
         </div>
       <div>
         <button className="newUserButton" onClick={sendData}>Create</button>
