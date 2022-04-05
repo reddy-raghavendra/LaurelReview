@@ -1,15 +1,15 @@
-.product {
+.Chapbook {
   flex: 4;
   padding: 20px;
 }
 
-.productTitleContainer {
+.ChapbookTitleContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.productAddButton {
+.ChapbookAddButton {
   width: 80px;
   border: none;
   padding: 5px;
@@ -20,23 +20,23 @@
   cursor: pointer;
 }
 
-.productTop {
+.ChapbookTop {
   display: flex;
 }
 
-.productTopLeft,
-.productTopRight {
+.ChapbookTopLeft,
+.ChapbookTopRight {
   flex: 1;
 }
 
-.productTopRight {
+.ChapbookTopRight {
   padding: 20px;
   margin: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
-.productInfoImg {
+.ChapbookInfoImg {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -44,63 +44,63 @@
   margin-right: 20px;
 }
 
-.productInfoTop {
+.ChapbookInfoTop {
   display: flex;
   align-items: center;
 }
 
-.productName {
+.ChapbookName {
   font-weight: 600;
 }
 
-.productInfoBottom {
+.ChapbookInfoBottom {
   margin-top: 10px;
 }
 
-.productInfoItem {
+.ChapbookInfoItem {
   width: 150px;
   display: flex;
   justify-content: space-between;
 }
 
-.productInfoValue {
+.ChapbookInfoValue {
   font-weight: 300;
 }
 
-.productBottom {
+.ChapbookBottom {
   padding: 20px;
   margin: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
-.productForm {
+.ChapbookForm {
   display: flex;
   justify-content: space-between;
 }
 
-.productFormLeft {
+.ChapbookFormLeft {
   display: flex;
   flex-direction: column;
 }
 
-.productFormLeft > label {
+.ChapbookFormLeft > label {
   margin-bottom: 10px;
   color: gray;
 }
 
-.productFormLeft > input {
+.ChapbookFormLeft > input {
   margin-bottom: 10px;
   border: none;
   padding: 5px;
   border-bottom: 1px solid gray;
 }
 
-.productFormLeft >select{
+.ChapbookFormLeft >select{
   margin-bottom: 10px;
 }
 
-.productUploadImg{
+.ChapbookUploadImg{
   width: 100px;
   height: 100px;
   border-radius: 10px;
@@ -108,18 +108,18 @@
   margin-right: 20px;
 }
 
-.productFormRight{
+.ChapbookFormRight{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.productUpload{
+.ChapbookUpload{
   display: flex;
   align-items: center;
 }
 
-.productButton{
+.ChapbookButton{
   border: none;
   padding: 5px;
   border-radius: 5px;

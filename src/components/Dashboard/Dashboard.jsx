@@ -19,7 +19,7 @@ export default function Dashboard() {
 
             </div>
             <div>
-            <Link to="/products" className="link">
+            <Link to="/ChapbookList" className="link">
               <li className="DashboardListItem active">
                 Chapbooks
               </li>

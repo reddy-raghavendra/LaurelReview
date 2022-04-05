@@ -11,9 +11,12 @@ import NewAboutUs from "./components/AboutUs/NewAboutUs";
 import EditAboutUs from "./components/AboutUs/EditAboutUs";
 import User from "./components/User/User";
 import NewUser from "./components/NewUser/NewUser";
-import ProductList from "./components/ProductList/ProductList";
-import Product from "./components/Product/Product";
-import NewProduct from "./components/NewProduct/NewProduct";
+// import ProductList from "./components/ProductList/ProductList";
+// import Product from "./components/Product/Product";
+// import NewProduct from "./components/NewProduct/NewProduct";
+import ChapbookList from "./components/ChapbookList/ChapbookList";
+import Chapbook from "./components/ChapbookList/Chapbook";
+import NewChapbook from "./components/ChapbookList/NewChapbook";
 import PodCastList from "./components/PodCast/Podcastlist"
 import IssueList from "./components/Issues/IssueList";
 import EditIssue from "./components/Issues/EditIssue";
@@ -87,17 +90,22 @@ export default class App extends Component {
             <Dashboard />
             <NewUser />
           </Route>
-          <Route path="/products">
+          <Route path="/ChapbookList">
             <Dashboard />
-            <ProductList />
+            {/* <ProductList /> */}
+            <ChapbookList />
           </Route>
-          <Route path="/product/:productId">
+          {/* <Route path="/product/:productId"> */}
+          <Route path="/Chapbook/:ChapbookId">
             <Dashboard />
-            <Product />
+            {/* <Product /> */}
+            <Chapbook />
           </Route>
-          <Route path="/newproduct">
+          {/* <Route path="/newproduct"> */}
+          <Route path="/newChapbook">
             <Dashboard />
-            <NewProduct />
+            {/* <NewProduct /> */}
+            <NewChapbook />
           </Route>
           <Route path="/issuelist">
             <Dashboard />
