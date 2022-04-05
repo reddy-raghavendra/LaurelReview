@@ -1,43 +1,46 @@
 import React from "react";
-import "./Podcasts.css";
-import "./AudioFile.css"
+import "./AboutUsDetails.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import SocialFollow from "./SocialFollow";
 
 export default function AboutUsDetails() {
-  var podCastList = [];
-  const [data, setData] = useState(podCastList);
+  var aboutUsList = [];
+  const [data, setData] = useState(aboutUsList);
   React.useEffect(() => {
-    getPodcasts();
+    getAboutUs();
   }, []);
-  function getPodcasts() {
-    const url = `http://localhost:8081/api/podcasts`;
+  function getAboutUs() {
+    const url = `http://localhost:8081/api/aboutus`;
     console.log(url);
     axios.get(url).then((response) => {
-      podCastList = response.data;
-      console.log("Response", podCastList);
-      var list = podCastList;
-      list.forEach((pod) => {
-        pod.buttonText = "Play";
-        pod.audio = "";
-      });
-      setData(list);
+      aboutUsList = response.data;
+      console.log("Response", aboutUsList);
+      setData(aboutUsList);
     });
   }
-  return data.map((pod) => (
-    <section className="laurel-podcast-section">
-      <div className="laurel-podcast-details">
-        <div className="laurel-podcast-img">
-        <img className="cover-podcast-image" src={pod.podcastCoverImage}></img>
+  return data.map((about) => (
+    <section className="laurel-aboutus-section">
+      <div className="laurel-aboutus-details">
+        <div className="laurel-aboutus-img">
+          <img
+            className="cover-aboutus-image"
+            src={about.aboutUsCoverImage}
+          ></img>
+          <SocialFollow className="cover-aboutus-social"
+            props={{
+              wordpress: about.wordPressLink,
+              facebook: about.faceBookLink,
+              instagram: about.instagramLink,
+              twitter: about.twitterLink,
+            }}
+          ></SocialFollow>
         </div>
-        <div className="laurel-podcast-details-content">
-          <h3 className="podcast-name">{pod.podcastName}</h3>
-          <p>{pod.podcastDate}</p>
-          <p>{pod.podcastDesc}</p>
-          <div className="main">
-          <AudioPlayer props={pod.podcastAudioFile}></AudioPlayer>
-          </div>
+        <div className="laurel-aboutus-details-content">
+          <h3 className="aboutus-name">{about.aboutUsName}</h3>
+          <p className="aboutus-pos">{about.aboutUsRole}</p>
+          <p className="aboutus-desc">{about.aboutUsDesc}</p>
         </div>
       </div>
     </section>

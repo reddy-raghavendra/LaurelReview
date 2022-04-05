@@ -1,0 +1,40 @@
+.social-container {
+    background: #ffffff;
+    margin-top: 4px;
+    margin-left:1px;
+    text-align: left;
+    float:left;
+    
+    /* width: 100%;
+    height:20%; */
+  }
+  a.social {
+    /* margin: 0 1rem; */
+    /* transition: transform 250ms; */
+    display: inline-block;
+  }
+  a.social:hover {
+    transform: translateY(-2px);
+    background-color: rgb(157, 201, 238);
+  }
+  a.youtube {
+    color: #eb3223;
+  }
+
+  a.tiktok{
+      color:black
+  }
+  
+  a.facebook {
+    color: #4968ad;
+  }
+  
+  a.twitter {
+    color: #49a1eb;
+  }
+  
+  a.instagram {
+    color: #bc2a8d;
+  }
+    
+    
