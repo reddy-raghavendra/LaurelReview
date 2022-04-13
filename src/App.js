@@ -30,8 +30,14 @@ import IssueDetails from "./components/CustomerIssues/IssueDetails/IssueDetails"
 import Podcasts from "./components/CustomerPodcast/Podcasts"
 import samplePdf from "./54.2.pdf"
 import EditPodCast from "./components/PodCast/EditPodCast";
+import Chapbooks from "./components/CustomerChapbook/Chapbooks";
+import ChapbookDetail from "./components/CustomerChapbook/ChapbookDetail";
+import { getToken } from "./components/Token/Token";
+
+
 
 export default class App extends Component {
+  
   state = { issues: [], isLoading: false };
   componentWillMount() {
     this.iniitateData();
@@ -66,7 +72,11 @@ export default class App extends Component {
           <Route exact path="/aboutus">
             <AboutUsDetails/>
           </Route>
+          <Route exact path="/chapbooks">
+            <Chapbooks/>
+          </Route>
         <Route exact path="/Issues/:id" render={(props) => <IssueDetails {...props} {...this.state} />}/>
+        <Route exact path="/chapbook/:id" render={(props) => <ChapbookDetail {...props} {...this.state} />}/>
         <Route exact path="/Issues/:id/pdf"><PdfView pdf={samplePdf}/></Route>
         
         <div className="container">
@@ -100,7 +110,7 @@ export default class App extends Component {
             <ChapbookList />
           </Route>
           {/* <Route path="/product/:productId"> */}
-          <Route path="/Chapbook/:ChapbookId">
+          <Route path="/ChapbookList/:ChapbookId">
             <Dashboard />
             {/* <Product /> */}
             <Chapbook />

@@ -59,7 +59,7 @@ export default function NewAboutUs() {
       };
     
 
-      const sendData = (event) => {
+      const sendData = (event) => { 
         event.preventDefault();
         debugger
         const newFormData = {...formData};

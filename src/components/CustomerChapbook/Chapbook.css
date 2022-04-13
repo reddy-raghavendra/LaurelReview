@@ -1,0 +1,12 @@
+.laurel-chapbook-section{
+    padding: 24px 160px;
+}
+
+.laurel-chapbook-cover img{
+    height: 200px;
+    width: 150px;
+}
+.laurel-chapbook {
+    display: inline-block;
+    width: 20%;
+}

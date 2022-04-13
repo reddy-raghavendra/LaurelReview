@@ -37,7 +37,7 @@ function Navbar() {
             <Link to="/Issues">
               <Button color="inherit">Issues</Button>
             </Link>
-            <Link to="/Issues">
+            <Link to="/chapbooks">
               <Button color="inherit">Chapbooks</Button>
             </Link>
             <Link to="/podcasts">

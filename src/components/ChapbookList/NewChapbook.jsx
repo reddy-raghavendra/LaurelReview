@@ -20,8 +20,8 @@ export default function Newchapbook() {
     chapBookName: "",
     chapBookDesc: "",
     chapBookTitle: "",
-    chapBookCoverImage: "",
-    status: true
+    chapBookCoverImage: ""
+    // status: true
 
   });
   const handleFormAddChange = (event) => {
@@ -50,23 +50,6 @@ export default function Newchapbook() {
           });
       });
   };
-  // const handleAudioFile = async (event) => {
-  //   var audio = event.target.files[0];
-  //   if (audio == null) return;
-
-  //   storage
-  //     .ref(`/audios/${audio.name}`)
-  //     .put(audio)
-  //     .on("state_changed",() => {
-  //       storage
-  //         .ref("audios")
-  //         .child(audio.name)
-  //         .getDownloadURL()
-  //         .then((url) => {
-  //           setAudioUrl(url);
-  //         });
-  //     });
-  // };
 
   const sendData = (event) => {
     event.preventDefault();
@@ -104,10 +87,6 @@ export default function Newchapbook() {
           <label>Author Name</label>
           <input type="text" id="AuthorName" name="chapBookName" align="left" placeholder="Author Name" required="true" onChange={handleFormAddChange} />
         </div>
-        {/* <div className="newUserItem">
-          <label>Audio file</label>
-          <input type="file" id="audio" name="chapbookAudioFile" align="left"  required="true" onChange={handleAudioFile}/>
-        </div> */}
         <div className="newUserItem">
           <label>Description of the chapbook</label>
           <input type="textarea" id="textArea" name="chapBookDesc" align="left" required="true" onChange={handleFormAddChange} />
@@ -116,7 +95,7 @@ export default function Newchapbook() {
           <label>Cover Image</label>
           <input type="file" id="image" name="chapBookCoverImage" align="left" required="true" onChange={handleImageFile} />
         </div>
-        <div className="newUserItem">
+        {/* <div className="newUserItem">
           <label>Status</label>
           <input
             type="checkbox"
@@ -124,39 +103,9 @@ export default function Newchapbook() {
             checked={formData.status}
             onChange={handleFormAddChange}
           />
-        </div>
+        </div> */}
         <button className="newUserButton" onClick={sendData}>Create</button>
       </form>
     </div>
   );
 }
-
-// export default function NewProduct() {
-//   return (
-//     <div className="newProduct">
-//       <h1 className="addProductTitle">New Chapbook</h1>
-//       <form className="addProductForm">
-//         <div className="addProductItem">
-//           <label>Image</label>
-//           <input type="file" id="file" />
-//         </div>
-//         <div className="addProductItem">
-//           <label>Name</label>
-//           <input type="text" placeholder="Chapbook" />
-//         </div>
-//         <div className="addProductItem">
-//           <label>Stock</label>
-//           <input type="text" placeholder="123" />
-//         </div>
-//         <div className="addProductItem">
-//           <label>Active</label>
-//           <select name="active" id="active">
-//             <option value="yes">Yes</option>
-//             <option value="no">No</option>
-//           </select>
-//         </div>
-//         <button className="addProductButton">Create</button>
-//       </form>
-//     </div>
-//   );
-// }

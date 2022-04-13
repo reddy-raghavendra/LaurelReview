@@ -2,6 +2,7 @@ import "./Dashboard.css";
 import "./../../App.css"
 import { Link } from "react-router-dom";
 import "../Search/Search"
+import { deleteToken } from "../Token/Token";
 
 
 export default function Dashboard() {
@@ -77,6 +78,24 @@ export default function Dashboard() {
             </Link>
           </ul>
         </div>
+        <div className="DashboardMenu">
+          <h2 className="DashboardTitle">Profile</h2>
+          <ul className="DashboardList">
+            <div>
+            <Link to="/" className="link" onClick={deleteToken()}>
+              <li className="DashboardListItem active" >
+                Logout
+              </li>
+            </Link>
+            </div>            
+            <Link to="/" className="link">
+              <li className="DashboardListItem active">
+                Edit Profile
+              </li>
+            </Link>
+          </ul>
+        </div>
+
 
         {/* <div className="DashboardMenu">
             <h2 className="DashboardTitle">Quick Menu</h2>

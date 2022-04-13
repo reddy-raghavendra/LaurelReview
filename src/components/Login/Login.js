@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
-
 import { useHistory } from "react-router-dom";
+import {setToken} from "../Token/Token"
 function Login() {
     const history = useHistory();
 
@@ -15,6 +15,8 @@ function Login() {
                 await axios.post('http://localhost:8081/api/login', userData).then(
                     (response) => {
                         if (response.data === "Login Success") {
+                            debugger
+                            setToken(response.data)                          
                             history.push("issueList");
                         }
                         else {

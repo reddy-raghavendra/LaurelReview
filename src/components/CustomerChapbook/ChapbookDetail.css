@@ -1,0 +1,53 @@
+.laurel-chapbook-details-section{
+    padding: 24px 160px;
+}
+.laurel-chapbook-details-img{
+    width:20%;
+}
+.laurel-chapbook-details-img img{
+    height: 300px;
+    width: 100%;
+}
+.laurel-chapbook-details-img{
+    padding-right: 32px;
+}
+.laurel-chapbook-details{
+    display: flex;
+}
+.laurel-chapbook-details-content{
+    width: 80%;
+}
+.laurel-chapbook-details-header-content{
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #c7c7c7;
+}
+
+.laurel-chapbook {
+    display: inline-block;
+    width: 20%;
+}
+.table-row{
+    display: flex;
+    min-width: 800px;
+    width: 70%;
+}
+.table-cell{
+    width: 50%;
+    font-size: 21px;
+}
+.table-cell-key{
+    font-weight: bold;
+}
+.order-now {
+    background-color: #214dc5;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }

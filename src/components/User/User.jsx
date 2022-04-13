@@ -8,6 +8,7 @@ import {
   PhoneAndroid,
   Publish,
 } from "@material-ui/icons";
+import { setToken } from "../Token/Token";
 // import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import { Link } from "react-router-dom";
 import "./user.css";
@@ -52,7 +53,7 @@ export default function User() {
       const response = await axios.put(`http://localhost:8081/api/update/${id}`, userData);
       // element.innerHTML = response.data.id;
       console.log(response)
-      alert("Updated Successfully")
+
       // window.open("http://localhost:3001/users")
 
   })();

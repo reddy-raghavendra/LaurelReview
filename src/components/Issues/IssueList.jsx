@@ -6,8 +6,16 @@ import { DeleteOutline } from "@material-ui/icons";
 import { issueRows, productRows } from "./../dummyData"
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { getToken } from '../Token/Token';
+import { useHistory } from "react-router-dom";
 
-export default function ProductList() {
+export default function IssueList() {
+  const { REACT_APP_API_URL } = process.env;
+  const history = useHistory()
+  debugger
+  // if(getToken()==null){
+  //   history.push("/login") 
+  // }
   var issueList = []
   const [data, setData] = useState(issueList);
   React.useEffect(()=>{
@@ -24,11 +32,12 @@ export default function ProductList() {
   }
 
   function getIssues() {
-    const url = `http://localhost:8081/api/issues`;
+    const url = `${REACT_APP_API_URL}api/issues`;
     console.log(url)
     axios.get(url).then(
           (response) => {
               issueList = response.data
+              console.log(getToken())
               console.log("Response",issueList)
 
               setData(issueList)
@@ -39,7 +48,7 @@ export default function ProductList() {
 
   const handleDelete = (id) => {
     // setData(data.filter((item) => item.id !== id));
-    axios.delete(`http://localhost:8081/api/issues/delete/${id}`).then(()=>setData(data.filter((item) => item.issueId !== id)));
+    axios.delete(`${REACT_APP_API_URL}/api/issues/delete/${id}`).then(()=>setData(data.filter((item) => item.issueId !== id)));
     alert("Deleted Successfully")
   };
 

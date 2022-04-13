@@ -26,16 +26,6 @@ export class Issues extends Component{
             //   data = response.data;
               this.setState({ issues: response.data, isLoading: false });
             });
-        //     .then((data) => {
-        //         console.log("promise",data)
-        //         this.issuesData.issues = data
-        //     // this.issuesData.issues = (response && response.data) ? response.data : [];
-        // });
-        // const issuesData = await issuesService.fetchIssues();
-        
-        // console.log('issueData', issuesData)
-        // this.setState({ issues: issuesData.issues, isLoading: issuesData.isLoading });
-
     }
     render() {
         // this.getIssuesData();
