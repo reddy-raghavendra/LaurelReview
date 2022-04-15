@@ -3,6 +3,7 @@ import React from 'react'
 import axios from "axios";
 import Alert from 'react-popup-alert'
 export default function NewUser() {
+  const {REACT_APP_API_URL} = process.env
   const [alert, setAlert] = React.useState({
     type: 'error',
     text: 'This is a alert message',
@@ -27,7 +28,7 @@ export default function NewUser() {
       // "active":true,
       // "role":"full access"}
 
-      const response = await axios.post('http://localhost:8081/api/save', userData);
+      const response = await axios.post(`${REACT_APP_API_URL}/save`, userData);
       // element.innerHTML = response.data.id;
       console.log(response)
       // alert("Created Successfully")

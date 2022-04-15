@@ -61,6 +61,7 @@ export default function NewProduct() {
   const [imageUrl, setImageUrl] = useState("");
   const [pdfUrl, setPdfUrl] = useState("");
   const history = useHistory()
+   const {REACT_APP_API_URL} = process.env
 
   const handleImageFile = async (event) => {
     var image = event.target.files[0];
@@ -149,7 +150,7 @@ export default function NewProduct() {
         "#post-request-async-await .article-id"
       );
       const response = await axios.post(
-        "http://localhost:8081/api/issues/save",
+        `${REACT_APP_API_URL}/issues/save`,
         issueData
       );
       if(response.status == 200){

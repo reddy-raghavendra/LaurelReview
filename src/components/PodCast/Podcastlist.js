@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function PodCastList() {
+  const {REACT_APP_API_URL} = process.env
   var podCastList = []
   const [data, setData] = useState(podCastList);
   React.useEffect(()=>{
@@ -15,7 +16,7 @@ export default function PodCastList() {
   // setData(podCastList);
   // assignText()
   function getPodcasts() {
-    const url = `http://localhost:8081/api/podcasts`;
+    const url = `${REACT_APP_API_URL}/podcasts`;
     console.log(url)
     axios.get(url).then(
           (response) => {

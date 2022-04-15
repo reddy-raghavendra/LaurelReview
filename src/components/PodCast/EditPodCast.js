@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function EditPodCast() {
+  const {REACT_APP_API_URL} = process.env
 
   const history = useHistory()
   const [imageUrl, setImageUrl] = useState("");
@@ -25,7 +26,7 @@ export default function EditPodCast() {
 
   async function  getPodcast() {
 
-    const url = `http://localhost:8081/api/podcast/${state}`;
+    const url = `${REACT_APP_API_URL}/podcast/${state}`;
     console.log(url)
       await axios.get(url).then(
           (response) => {             

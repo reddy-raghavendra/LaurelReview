@@ -18,9 +18,10 @@ import React from "react";
 
 
 export default function UserList() {
+  const {REACT_APP_API_URL} = process.env
   var userList=[]
   function getUser() {
-    const url = `http://localhost:8081/api/users`;
+    const url = `${REACT_APP_API_URL}/api/users`;
     console.log(url)
       axios.get(url).then(
           (response) => {

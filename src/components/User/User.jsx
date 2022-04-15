@@ -17,6 +17,7 @@ import "./user.css";
 import React, { useState, useEffect } from "react";
 
 export default function User() {
+  const {REACT_APP_API_URL} = process.env
   // const { id } = React.useParams()
  
   var urlValues = window.location.pathname.split("/")
@@ -50,7 +51,7 @@ export default function User() {
       "gender":userGender,
       "active":userStatus,
       "role":userRole}
-      const response = await axios.put(`http://localhost:8081/api/update/${id}`, userData);
+      const response = await axios.put(`${REACT_APP_API_URL}/update/${id}`, userData);
       // element.innerHTML = response.data.id;
       console.log(response)
 
