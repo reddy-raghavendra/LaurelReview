@@ -6,6 +6,7 @@ import { useState } from "react";
 import Alert from 'react-popup-alert'
 import { useHistory } from "react-router-dom";
 export default function NewPodCast() {
+  const {REACT_APP_API_URL} = process.env
     const history = useHistory()
     const [imageUrl, setImageUrl] = useState("");
     const [audioUrl, setAudioUrl] = useState("");
@@ -75,7 +76,7 @@ export default function NewPodCast() {
             "#post-request-async-await .article-id"
           );
           const response = await axios.post(
-            "http://localhost:8081/api/podcast/save",
+            `${REACT_APP_API_URL}/podcast/save`,
             newFormData
           );
           if(response.status == 200){

@@ -31,8 +31,9 @@ export default function IssueList() {
     "issueImage": ""
   }
 
+
   function getIssues() {
-    const url = `${REACT_APP_API_URL}api/issues`;
+    const url = `${REACT_APP_API_URL}/issues`;
     console.log(url)
     axios.get(url).then(
           (response) => {

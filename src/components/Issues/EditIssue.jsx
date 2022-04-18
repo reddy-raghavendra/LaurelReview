@@ -67,10 +67,11 @@ export default function EditIssue() {
   const [pdfUrl, setPdfUrl] = useState("");
   const history = useHistory()
   const { state } = useLocation();
+  const { REACT_APP_API_URL } = process.env;
 
   async function  getIssue() {
 
-    const url = `http://localhost:8081/api/issues/${state}`;
+    const url = `${REACT_APP_API_URL}/issues/${state}`;
     console.log(url)
       await axios.get(url).then(
           (response) => {
@@ -191,7 +192,7 @@ export default function EditIssue() {
         "#post-request-async-await .article-id"
       );
       const response = await axios.post(
-        "http://localhost:8081/api/issues/save",
+        `${REACT_APP_API_URL}/issues/save`,
         issueData
       );
       if(response.status == 200){
