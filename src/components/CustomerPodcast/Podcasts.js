@@ -7,13 +7,14 @@ import { useState } from "react";
 import { AudioPlayer } from "../AudioPlayer/AudioPlayer";
 
 export default function Podcasts() {
+  const { REACT_APP_API_URL } = process.env;
   var podCastList = [];
   const [data, setData] = useState(podCastList);
   React.useEffect(() => {
     getPodcasts();
   }, []);
   function getPodcasts() {
-    const url = `http://localhost:8081/api/podcasts`;
+    const url = `${REACT_APP_API_URL}api/podcasts`;
     console.log(url);
     axios.get(url).then((response) => {
       podCastList = response.data;

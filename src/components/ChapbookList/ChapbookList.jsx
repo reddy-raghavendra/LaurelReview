@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function ChapbookList() {
+  const { REACT_APP_API_URL } = process.env;
   var chapbookList = []
   const [data, setData] = useState(chapbookList);
   React.useEffect(()=>{
@@ -15,7 +16,7 @@ export default function ChapbookList() {
   //setData(chapbookList);
   //assignText()
   function getchapbooks() {
-    const url = `http://localhost:8081/api/chapbooks`;
+    const url = `${REACT_APP_API_URL}chapbooks`;
     debugger;
     console.log(url)
     axios.get(url).then(
@@ -45,7 +46,7 @@ export default function ChapbookList() {
 
   const handleDelete = (id) => {
     debugger;
-    axios.delete(`http://localhost:8081/api/chapbook/delete/${id}`).then(()=>setData(data.filter((item) => item.chapBookId !== id)));
+    axios.delete(`${REACT_APP_API_URL}chapbook/delete/${id}`).then(()=>setData(data.filter((item) => item.chapBookId !== id)));
     alert("Deleted Successfully")
   };
 // function toggle(id){

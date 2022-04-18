@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function NewAboutUs() {
+  const { REACT_APP_API_URL } = process.env;
     const history = useHistory()
     const [imageUrl, setImageUrl] = useState("");
     const [formData,setFormData] = useState({
@@ -72,7 +73,7 @@ export default function NewAboutUs() {
             "#post-request-async-await .article-id"
           );
           const response = await axios.post(
-            "http://localhost:8081/api/aboutus/save",
+            "${REACT_APP_API_URL}aboutus/save",
             newFormData
           );
           if(response.status == 200){
