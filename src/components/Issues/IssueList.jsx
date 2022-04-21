@@ -14,6 +14,7 @@ export default function IssueList(props) {
   const { REACT_APP_API_URL } = process.env;
   const history = useHistory();
   const token = history.location;
+  debugger
   if (token.state != undefined) {
     if (token.state.token != "Login Success") {
       history.push("/login");

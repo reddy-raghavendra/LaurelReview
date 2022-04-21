@@ -13,11 +13,10 @@ function Login() {
         };
         (async () => {
             try {
-                await axios.post('${REACT_APP_API_URL}login', userData).then(
+                await axios.post(`${REACT_APP_API_URL}api/login`, userData).then(
                     (response) => {
                         if (response.data === "Login Success") {
-                            debugger
-                            setToken(response.data)                          
+                            debugger                       
                             history.push({
                                 pathname:"/issueList",
                                 state:{token:response.data}

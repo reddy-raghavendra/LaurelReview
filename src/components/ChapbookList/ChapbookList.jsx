@@ -16,7 +16,7 @@ export default function ChapbookList() {
   //setData(chapbookList);
   //assignText()
   function getchapbooks() {
-    const url = `${REACT_APP_API_URL}chapbooks`;
+    const url = `${REACT_APP_API_URL}api/chapbooks`;
     debugger;
     console.log(url)
     axios.get(url).then(
