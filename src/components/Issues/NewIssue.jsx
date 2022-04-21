@@ -155,7 +155,7 @@ export default function NewProduct() {
         "#post-request-async-await .article-id"
       );
       const response = await axios.post(
-        `${REACT_APP_API_URL}/issues/save`,
+        `${REACT_APP_API_URL}api/issues/save`,
         issueData
       );
       if(response.status == 200){

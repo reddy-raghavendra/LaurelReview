@@ -15,13 +15,16 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
-
+import { getToken } from "../Token/Token";
 
 export default function UserList() {
+  if(getToken() != "Login Success"){
+    history.push("/login");
+  }
   const {REACT_APP_API_URL} = process.env
   var userList=[]
   function getUser() {
-    const url = `${REACT_APP_API_URL}/api/users`;
+    const url = `${REACT_APP_API_URL}api/users`;
     console.log(url)
       axios.get(url).then(
           (response) => {
@@ -39,7 +42,7 @@ export default function UserList() {
   console.log(userList)
   const [data, setData] = useState(userList);
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8081/api/delete/${id}`).then(()=>setData(data.filter((item) => item.id !== id)));
+    axios.delete(`${REACT_APP_API_URL}api/delete/${id}`).then(()=>setData(data.filter((item) => item.id !== id)));
     alert("Deleted Successfully")
   };
   

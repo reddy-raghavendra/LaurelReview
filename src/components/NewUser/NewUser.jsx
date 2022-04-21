@@ -2,6 +2,7 @@ import "./newUser.css";
 import React from 'react'
 import axios from "axios";
 import Alert from 'react-popup-alert'
+import { getToken } from "../Token/Token"
 export default function NewUser() {
   const {REACT_APP_API_URL} = process.env
   const [alert, setAlert] = React.useState({
@@ -12,6 +13,9 @@ export default function NewUser() {
 
 
   function createUser(event) {
+    if(getToken() != "Login Success"){
+      history.push("/login");
+    }
     let userData = getData();
     event.preventDefault();
     (async () => {
@@ -28,7 +32,7 @@ export default function NewUser() {
       // "active":true,
       // "role":"full access"}
 
-      const response = await axios.post(`${REACT_APP_API_URL}/save`, userData);
+      const response = await axios.post(`${REACT_APP_API_URL}/api/save`, userData);
       // element.innerHTML = response.data.id;
       console.log(response)
       // alert("Created Successfully")

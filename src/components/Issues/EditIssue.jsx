@@ -23,6 +23,7 @@ import ViewColumn from "@material-ui/icons/ViewColumn";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { getToken } from "../Token/Token";
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -50,9 +51,9 @@ const tableIcons = {
 
 const contents = [];
 export default function EditIssue() {
-
-
-
+  if(getToken() != "Login Success"){
+    history.push("/login");
+  }
   const [tableRows, setRows] = useState(contents);
   const [index, setIndex] = useState(1);
   const [addFormData, setAddFormData] = useState({
@@ -71,7 +72,7 @@ export default function EditIssue() {
 
   async function  getIssue() {
 
-    const url = `${REACT_APP_API_URL}/issues/${state}`;
+    const url = `${REACT_APP_API_URL}api/issues/${state}`;
     console.log(url)
       await axios.get(url).then(
           (response) => {
@@ -192,7 +193,7 @@ export default function EditIssue() {
         "#post-request-async-await .article-id"
       );
       const response = await axios.post(
-        `${REACT_APP_API_URL}/issues/save`,
+        `${REACT_APP_API_URL}api/issues/save`,
         issueData
       );
       if(response.status == 200){
