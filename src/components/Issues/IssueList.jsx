@@ -13,8 +13,7 @@ import { useHistory } from "react-router-dom";
 export default function IssueList(props) {
   const { REACT_APP_API_URL } = process.env;
   const history = useHistory();
-  const token = history.location;
-  debugger
+  const token = history.location;  
   if (token.state != undefined) {
     if (token.state.token != "Login Success") {
       history.push("/login");
@@ -58,7 +57,7 @@ export default function IssueList(props) {
   const handleDelete = (id) => {
     // setData(data.filter((item) => item.id !== id));
     axios
-      .delete(`${REACT_APP_API_URL}/api/issues/delete/${id}`)
+      .delete(`${REACT_APP_API_URL}api/issues/delete/${id}`)
       .then(() => setData(data.filter((item) => item.issueId !== id)));
     alert("Deleted Successfully");
   };

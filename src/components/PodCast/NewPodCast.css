@@ -1,6 +1,11 @@
 .newUser {
     flex: 4;
   }
+
+.required-field::after {
+    content: "*";
+    color: red;
+}
   
   .newUserForm {
     display: flex;

@@ -33,7 +33,7 @@ export default function EditPodCast() {
 
   async function  getPodcast() {
 
-    const url = `${REACT_APP_API_URL}/podcast/${state}`;
+    const url = `${REACT_APP_API_URL}api/podcast/${state}`;
     console.log(url)
       await axios.get(url).then(
           (response) => {             
@@ -44,7 +44,9 @@ export default function EditPodCast() {
                 podcastDate:response.data.podcastDate,
                 podcastAudioFile:response.data.podcastAudioFile,
                 podcastCoverImage:response.data.podcastCoverImage
-              })             
+              })   
+              setAudioUrl(response.data.podcastAudioFile)
+              setImageUrl(response.data.podcastCoverImage)                      
           });
         //   console.log("iser: "+ userData)
     }
@@ -112,13 +114,13 @@ const handleImageFile = async (event) => {
       const element = document.querySelector(
         "#post-request-async-await .article-id"
       );
-      const response = await axios.post(
-        "http://localhost:8081/api/podcast/save",
+      const response = await axios.put(
+        `${REACT_APP_API_URL}api/podcast/update/${state}`,
         newFormData
       );
       if(response.status == 200){
         alert("Podcast saved successfully")
-        history.push("/podcasts") 
+        history.push("/podcastlist") 
       }
     })();
   };

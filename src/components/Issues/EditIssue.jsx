@@ -24,6 +24,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getToken } from "../Token/Token";
+import {Document} from 'react-pdf'
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -96,11 +97,13 @@ export default function EditIssue() {
                     pageNo:response.data.issueDetails[i].pageNo
                 };   
                 issueDetails.push(detail)
-              }                    
+              }   
+              console.log(issueDetails)                 
               setAddFormData(formData) 
               setRows(issueDetails)
+              setImageUrl(formData.imageFile)
+              setPdfUrl(formData.pdfFile)
           });
-        //   console.log("iser: "+ userData)
     }
   React.useEffect(()=>{
     getIssue()
@@ -145,7 +148,7 @@ export default function EditIssue() {
   const columns = [
     { title: "No", field: "issueInfoId", editable: false },
     { title: "Author Name", field: "authorName" },
-    { title: "Description", field: "authorDescription" },
+    { title: "Description", field: "description" },
     { title: "Page No", field: "pageNo" }
   ];
 
@@ -160,8 +163,8 @@ export default function EditIssue() {
   }
 
   const sendData = (event) => {
-    event.preventDefault();
-  //   alert("Issue Created Successfully") 
+  
+  event.preventDefault();
 
   const newFormData = {...addFormData}
   newFormData.tableRows = {...tableRows}
@@ -204,7 +207,6 @@ export default function EditIssue() {
   };
 
   const addToForm = (name, value) => {
-    debugger
     const newFormData = { ...addFormData };
     newFormData[name] = value;
   };
@@ -318,12 +320,13 @@ export default function EditIssue() {
           />
         </div>
         <div className="addProductItem">
-          <label>Cover page image</label>
+        <label>Cover page image</label>
+          <img src={imageUrl}></img>
           <input
             name="imageFile"
             type="file"
             id="file"
-            src = {addFormData.imageFile}
+            src = {imageUrl}
             className="addProductItem"
             required="true"
             onChange={handleImageFile}
@@ -337,7 +340,7 @@ export default function EditIssue() {
             id="pdfFile"
             className="addProductItem"
             required="true"
-            onChange={handlePdfFile}
+            onChange={pdfUrl}
           />
         </div>
         <button className="addProductButton" onClick={sendData}>

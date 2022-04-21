@@ -95,7 +95,7 @@ export default function NewPodCast() {
       <h1 className="newUserTitle">Create Podcast</h1>
       <form className="newUserForm">
         <div className="newUserItem">
-          <label>Name Of the Podcast</label>
+          <label className="required-field">Name Of the Podcast</label>
           <input type="text" id="podcastName" name="podcastName" align="left" placeholder="Podcast name" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
