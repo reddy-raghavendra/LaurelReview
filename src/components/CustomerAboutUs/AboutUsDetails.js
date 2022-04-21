@@ -3,6 +3,7 @@ import "./AboutUsDetails.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { getToken } from "../Token/Token";
 import SocialFollow from "./SocialFollow";
 
 export default function AboutUsDetails() {
@@ -10,10 +11,13 @@ export default function AboutUsDetails() {
   var aboutUsList = [];
   const [data, setData] = useState(aboutUsList);
   React.useEffect(() => {
+    if(getToken() != "Login Success"){
+      history.push("/login");
+    }
     getAboutUs();
   }, []);
   function getAboutUs() {
-    const url = `${REACT_APP_API_URL}aboutus`;
+    const url = `${REACT_APP_API_URL}api/aboutus`;
     console.log(url);
     axios.get(url).then((response) => {
       aboutUsList = response.data;
