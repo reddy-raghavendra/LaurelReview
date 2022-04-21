@@ -16,7 +16,7 @@ export default function PodCastList() {
   // setData(podCastList);
   // assignText()
   function getPodcasts() {
-    const url = `${REACT_APP_API_URL}/podcasts`;
+    const url = `${REACT_APP_API_URL}api/podcasts`;
     console.log(url)
     axios.get(url).then(
           (response) => {
@@ -44,7 +44,7 @@ export default function PodCastList() {
     console.log("Data",data)
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8081/api/podcast/delete/${id}`).then(()=>setData(data.filter((item) => item.issueId !== id)));
+    axios.delete(`${REACT_APP_API_URL}api/podcast/delete/${id}`).then(()=>setData(data.filter((item) => item.issueId !== id)));
     alert("Deleted Successfully")
   };
 function toggle(id){

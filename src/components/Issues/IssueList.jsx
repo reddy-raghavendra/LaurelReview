@@ -1,56 +1,65 @@
-import React from 'react'
+import React from "react";
 import "./IssueList.css";
 import axios from "axios";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { issueRows, productRows } from "./../dummyData"
+import { issueRows, productRows } from "./../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { getToken } from '../Token/Token';
+import { getToken } from "../Token/Token";
+import { setToken } from "../Token/Token";
 import { useHistory } from "react-router-dom";
 
-export default function IssueList() {
+export default function IssueList(props) {
   const { REACT_APP_API_URL } = process.env;
-  const history = useHistory()
-  debugger
-  // if(getToken()==null){
-  //   history.push("/login") 
-  // }
-  var issueList = []
-  const [data, setData] = useState(issueList);
-  React.useEffect(()=>{
-    getIssues()
-  },[])
-
-  var issueData = {
-    "issueId":"",
-    "issueTitle": "",
-    "issueStock": 0,
-    "status": false,
-    "issueAttachment":"",
-    "issueImage": ""
+  const history = useHistory();
+  const token = history.location;
+  if (token.state != undefined) {
+    if (token.state.token != "Login Success") {
+      history.push("/login");
+    }else{
+      setToken(token.state.token);
+    }
+  }
+  else if(getToken() != "Login Success"){
+    history.push("/login");
   }
 
+  var issueList = [];
+  const [data, setData] = useState(issueList);
+  React.useEffect(() => {
+    getIssues();
+  }, []);
+
+  var issueData = {
+    issueId: "",
+    issueTitle: "",
+    issueStock: 0,
+    status: false,
+    issueAttachment: "",
+    issueImage: "",
+  };
 
   function getIssues() {
-    const url = `${REACT_APP_API_URL}/issues`;
-    console.log(url)
-    axios.get(url).then(
-          (response) => {
-              issueList = response.data
-              console.log(getToken())
-              console.log("Response",issueList)
+    const url = `${REACT_APP_API_URL}api/issues`;
+    console.log(url);
+    axios.get(url).then((response) => {
+      issueList = response.data;
+      console.log(getToken());
+      console.log("Response", issueList);
 
-              setData(issueList)
-          });
-    }
+      setData(issueList);
+    });
+  }
 
-    console.log("Data",data)
+  console.log("Data", data);
 
   const handleDelete = (id) => {
     // setData(data.filter((item) => item.id !== id));
-    axios.delete(`${REACT_APP_API_URL}/api/issues/delete/${id}`).then(()=>setData(data.filter((item) => item.issueId !== id)));
-    alert("Deleted Successfully")
+    axios
+      .delete(`${REACT_APP_API_URL}/api/issues/delete/${id}`)
+      .then(() => setData(data.filter((item) => item.issueId !== id)));
+    alert("Deleted Successfully");
   };
 
   const columns = [
@@ -62,7 +71,11 @@ export default function IssueList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={params.row.issueImage} alt="" />
+            <img
+              className="productListImg"
+              src={params.row.issueImage}
+              alt=""
+            />
             {params.row.issueTitle}
           </div>
         );
@@ -81,12 +94,20 @@ export default function IssueList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={{pathname:`/editissue/" + ${params.row.issueId}`,state:params.row.issueId}}>
+            <Link
+              to={{
+                pathname: `/editissue/" + ${params.row.issueId}`,
+                state: params.row.issueId,
+              }}
+            >
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => { window.confirm("Are you sure you want to delete this issue?")&&handleDelete(params.row.issueId)}}
+              onClick={() => {
+                window.confirm("Are you sure you want to delete this issue?") &&
+                  handleDelete(params.row.issueId);
+              }}
             />
           </>
         );
@@ -96,23 +117,17 @@ export default function IssueList() {
 
   return (
     <div className="productList">
-
       <Link to="/newissue">
         <button className="issueAddButton">Create Issue</button>
       </Link>
       <DataGrid
         rows={data}
-        getRowId ={(row) => row.issueId} 
+        getRowId={(row) => row.issueId}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
         checkboxSelection
       />
-
     </div>
-
-
   );
-
-
 }

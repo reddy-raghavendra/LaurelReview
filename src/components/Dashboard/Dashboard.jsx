@@ -3,9 +3,16 @@ import "./../../App.css"
 import { Link } from "react-router-dom";
 import "../Search/Search"
 import { deleteToken } from "../Token/Token";
-
+import { useHistory } from "react-router-dom";
 
 export default function Dashboard() {
+  const history = useHistory()
+  function logOut(event){
+    event.preventDefault();
+    deleteToken();
+    history.push("/login")
+  }
+
   return (
     <div className="Dashboard">
       <div className="DashboardWrapper">
@@ -32,7 +39,7 @@ export default function Dashboard() {
           <h2 className="DashboardTitle">Pages</h2>
           <ul className="DashboardList">
             <div>
-              <Link to="/" className="link">
+              <Link to={{ pathname: "https://console.firebase.google.com/u/0/project/laurel-review/storage" }} target="_blank">
                 <li className="DashboardListItem active">
                   Files
                 </li>
@@ -82,17 +89,12 @@ export default function Dashboard() {
           <h2 className="DashboardTitle">Profile</h2>
           <ul className="DashboardList">
             <div>
-            <Link to="/" className="link" onClick={deleteToken()}>
+            <Link to="/" className="link" onClick={logOut}>
               <li className="DashboardListItem active" >
                 Logout
               </li>
             </Link>
             </div>            
-            <Link to="/" className="link">
-              <li className="DashboardListItem active">
-                Edit Profile
-              </li>
-            </Link>
           </ul>
         </div>
 

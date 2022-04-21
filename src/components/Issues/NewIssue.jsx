@@ -21,6 +21,7 @@ import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { getToken } from "../Token/Token";
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -62,6 +63,10 @@ export default function NewProduct() {
   const [pdfUrl, setPdfUrl] = useState("");
   const history = useHistory()
    const {REACT_APP_API_URL} = process.env
+
+  if(getToken() != "Login Success"){
+    history.push("/login");
+  }
 
   const handleImageFile = async (event) => {
     var image = event.target.files[0];

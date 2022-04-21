@@ -25,14 +25,19 @@ function Navbar() {
           <div className="MuiToolbar-root.MuiToolbar-gutters">
             <Link
               to={{
-                pathname: "https://thelaurelreview.submittable.com/submit",
+                pathname: "https://thelaurelreview.submittable.com/login?ReturnUrl=%2Fuser%2Fsubmissions",
               }}
               target="_blank"
             >
               <Button color="inherit">Submissions</Button>
             </Link>
-            <Link to="/Issues">
-              <Button color="inherit">Subscriptions</Button>
+            <Link
+              to={{
+                pathname: "https://thelaurelreview.submittable.com/login?returnUrl=%2Fsubmit%2F99890%2Fsubscriptions-orders",
+              }}
+              target="_blank"
+            >
+            <Button color="inherit">Subscriptions</Button>
             </Link>
             <Link to="/Issues">
               <Button color="inherit">Issues</Button>

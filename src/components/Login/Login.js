@@ -17,7 +17,10 @@ function Login() {
                         if (response.data === "Login Success") {
                             debugger
                             setToken(response.data)                          
-                            history.push("issueList");
+                            history.push({
+                                pathname:"/issueList",
+                                state:{token:response.data}
+                            });
                         }
                         else {
                             alert("Incorrect email or password");
