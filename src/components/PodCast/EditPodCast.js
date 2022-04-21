@@ -8,9 +8,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { getToken } from "../Token/Token";
+
+
 
 export default function EditPodCast() {
   const {REACT_APP_API_URL} = process.env
+  
 
   const history = useHistory()
   const [imageUrl, setImageUrl] = useState("");
@@ -23,6 +27,9 @@ export default function EditPodCast() {
       podcastCoverImage: ""
   });
   const { state } = useLocation();
+  if(getToken() != "Login Success"){
+    history.push("/login");
+  }
 
   async function  getPodcast() {
 

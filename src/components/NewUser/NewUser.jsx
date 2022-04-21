@@ -3,6 +3,8 @@ import React from 'react'
 import axios from "axios";
 import Alert from 'react-popup-alert'
 import { getToken } from "../Token/Token"
+import { useHistory } from "react-router-dom";
+
 export default function NewUser() {
   const {REACT_APP_API_URL} = process.env
   const [alert, setAlert] = React.useState({
@@ -10,6 +12,7 @@ export default function NewUser() {
     text: 'This is a alert message',
     show: false
   })
+  const history = useHistory()
 
 
   function createUser(event) {

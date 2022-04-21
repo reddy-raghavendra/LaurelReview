@@ -3,14 +3,21 @@ import "./Podcastlist.css"
 import axios from "axios";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { useState } from "react";
+import { getToken } from "../Token/Token";
+
 
 export default function PodCastList() {
   const {REACT_APP_API_URL} = process.env
+  const history = useHistory()
+
   var podCastList = []
   const [data, setData] = useState(podCastList);
   React.useEffect(()=>{
+      if(getToken() != "Login Success"){
+    history.push("/login");
+  }
     getPodcasts()
   },[])
   // setData(podCastList);

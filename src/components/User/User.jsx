@@ -15,8 +15,11 @@ import "./user.css";
 // import React from "react";
 // import { useState } from "react";
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
 
 export default function User() {
+  const history = useHistory()
   const { REACT_APP_API_URL } = process.env;
   // const { id } = React.useParams()
   if (getToken() != "Login Success") {

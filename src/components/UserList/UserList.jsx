@@ -16,8 +16,11 @@ import { useState } from "react";
 import axios from "axios";
 import React from "react";
 import { getToken } from "../Token/Token";
+import { useHistory } from "react-router-dom";
+
 
 export default function UserList() {
+  const history = useHistory()
   if(getToken() != "Login Success"){
     history.push("/login");
   }

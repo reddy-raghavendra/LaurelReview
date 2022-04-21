@@ -2,15 +2,21 @@ import React from "react";
 import "./Podcasts.css";
 import "./AudioFile.css"
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { AudioPlayer } from "../AudioPlayer/AudioPlayer";
+import { useHistory } from "react-router-dom";
+import { getToken } from "../Token/Token";
 
 export default function Podcasts() {
   const { REACT_APP_API_URL } = process.env;
+  const history = useHistory()
+
   var podCastList = [];
   const [data, setData] = useState(podCastList);
   React.useEffect(() => {
+    if(getToken() != "Login Success"){
+      history.push("/login");
+    }
     getPodcasts();
   }, []);
   function getPodcasts() {
