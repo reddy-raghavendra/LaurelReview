@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 import "./Chapbook.css";
 // import Chart from "../../components/chart/Chart"
 import { ChapbookData } from "../../dummyData"
+import { getToken } from "../Token/Token";
 import { Publish } from "@material-ui/icons";
 
 export default function Chapbook() {
+
+    if (getToken() != "Login Success") {
+        history.push("/login");
+      }
     return (
         <div className="Chapbook">
             {/* <div className="ChapbookTitleContainer">

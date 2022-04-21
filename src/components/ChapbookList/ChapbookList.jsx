@@ -5,9 +5,15 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { getToken } from "../Token/Token";
 
 export default function ChapbookList() {
   const { REACT_APP_API_URL } = process.env;
+
+  const { id } = React.useParams()
+  if (getToken() != "Login Success") {
+    history.push("/login");
+  }
   var chapbookList = []
   const [data, setData] = useState(chapbookList);
   React.useEffect(()=>{

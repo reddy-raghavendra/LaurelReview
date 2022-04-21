@@ -1,19 +1,18 @@
 import "./newChapbook.css";
-// import textarea from "./TextArea.jsx";
-
-//Author Name
-//title
-//description
-//link to buy 
-
 import storage from "../Firebase/Firebase";
 import React from 'react'
 import axios from "axios";
 import { useState } from "react";
 import Alert from 'react-popup-alert'
 import { useHistory } from "react-router-dom";
+import { getToken } from "../Token/Token";
+
 export default function Newchapbook() {
   const { REACT_APP_API_URL } = process.env;
+  const { id } = React.useParams()
+  if (getToken() != "Login Success") {
+    history.push("/login");
+  }
   const history = useHistory()
   const [imageUrl, setImageUrl] = useState("");
   // const [audioUrl, setAudioUrl] = useState("");
