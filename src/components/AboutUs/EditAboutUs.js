@@ -18,7 +18,7 @@ import {
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 export default function EditAboutUS() {
-
+  const { REACT_APP_API_URL } = process.env;
   const history = useHistory()
   const [imageUrl, setImageUrl] = useState("");
   const [audioUrl, setAudioUrl] = useState("");
@@ -33,7 +33,7 @@ export default function EditAboutUS() {
 
   async function  getAboutUs() {
 
-    const url = `http://localhost:8081/api/AboutUs/${state}`;
+    const url = `${REACT_APP_API_URL}AboutUs/${state}`;
     console.log(url)
       await axios.get(url).then(
           (response) => {             
@@ -113,7 +113,7 @@ const handleImageFile = async (event) => {
         "#post-request-async-await .article-id"
       );
       const response = await axios.post(
-        "http://localhost:8081/api/AboutUs/save",
+        "${REACT_APP_API_URL}AboutUs/save",
         newFormData
       );
       if(response.status == 200){

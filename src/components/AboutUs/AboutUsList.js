@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function AboutUsList() {
+  const { REACT_APP_API_URL } = process.env;
   var AboutUsList = []
   const [data, setData] = useState(AboutUsList);
   React.useEffect(()=>{
@@ -14,7 +15,7 @@ export default function AboutUsList() {
   },[])
 
   function getAboutUs() {
-    const url = `http://localhost:8081/api/aboutus`;
+    const url = `${REACT_APP_API_URL}aboutus`;
     console.log(url)
     axios.get(url).then(
           (response) => {
@@ -25,7 +26,7 @@ export default function AboutUsList() {
     }
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8081/api/aboutus/delete/${id}`).then(()=>setData(data.filter((item) => item.aboutUsId !== id)));
+    axios.delete(`${REACT_APP_API_URL}aboutus/delete/${id}`).then(()=>setData(data.filter((item) => item.aboutUsId !== id)));
     alert("Deleted Successfully")
   };
 

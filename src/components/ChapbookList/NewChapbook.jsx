@@ -13,6 +13,7 @@ import { useState } from "react";
 import Alert from 'react-popup-alert'
 import { useHistory } from "react-router-dom";
 export default function Newchapbook() {
+  const { REACT_APP_API_URL } = process.env;
   const history = useHistory()
   const [imageUrl, setImageUrl] = useState("");
   // const [audioUrl, setAudioUrl] = useState("");
@@ -66,7 +67,7 @@ export default function Newchapbook() {
         "#post-request-async-await .article-id"
       );
       const response = await axios.post(
-        "http://localhost:8081/api/chapbook/save",
+        "${REACT_APP_API_URL}chapbook/save",
         newFormData
       );
       if (response.status == 200) {

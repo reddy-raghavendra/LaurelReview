@@ -3,6 +3,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import {setToken} from "../Token/Token"
 function Login() {
+    const { REACT_APP_API_URL } = process.env;
     const history = useHistory();
 
     async function getUser() {
@@ -12,7 +13,7 @@ function Login() {
         };
         (async () => {
             try {
-                await axios.post('http://localhost:8081/api/login', userData).then(
+                await axios.post('${REACT_APP_API_URL}login', userData).then(
                     (response) => {
                         if (response.data === "Login Success") {
                             debugger

@@ -6,13 +6,14 @@ import { useState } from "react";
 import SocialFollow from "./SocialFollow";
 
 export default function AboutUsDetails() {
+  const { REACT_APP_API_URL } = process.env;
   var aboutUsList = [];
   const [data, setData] = useState(aboutUsList);
   React.useEffect(() => {
     getAboutUs();
   }, []);
   function getAboutUs() {
-    const url = `http://localhost:8081/api/aboutus`;
+    const url = `${REACT_APP_API_URL}aboutus`;
     console.log(url);
     axios.get(url).then((response) => {
       aboutUsList = response.data;
