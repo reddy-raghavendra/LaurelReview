@@ -6,11 +6,11 @@ import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { getToken } from "../Token/Token";
+import { useHistory } from "react-router-dom";
 
 export default function ChapbookList() {
   const { REACT_APP_API_URL } = process.env;
-
-  const { id } = React.useParams()
+  const history = useHistory()
   if (getToken() != "Login Success") {
     history.push("/login");
   }

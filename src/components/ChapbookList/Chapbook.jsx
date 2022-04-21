@@ -4,9 +4,11 @@ import "./Chapbook.css";
 import { ChapbookData } from "../../dummyData"
 import { getToken } from "../Token/Token";
 import { Publish } from "@material-ui/icons";
+import { useHistory } from "react-router-dom";
 
 export default function Chapbook() {
 
+    const history = useHistory()
     if (getToken() != "Login Success") {
         history.push("/login");
       }

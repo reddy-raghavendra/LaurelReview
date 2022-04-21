@@ -8,12 +8,14 @@ import { useHistory } from "react-router-dom";
 import { getToken } from "../Token/Token";
 
 export default function Newchapbook() {
-  const { REACT_APP_API_URL } = process.env;
-  const { id } = React.useParams()
+ 
+
+  const history = useHistory()
   if (getToken() != "Login Success") {
     history.push("/login");
   }
-  const history = useHistory()
+  const { REACT_APP_API_URL } = process.env;
+  const { id } = React.useParams()
   const [imageUrl, setImageUrl] = useState("");
   // const [audioUrl, setAudioUrl] = useState("");
   const [formData, setFormData] = useState({
