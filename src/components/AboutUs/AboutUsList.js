@@ -5,17 +5,21 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { getToken } from "../Token/Token";
 
 export default function AboutUsList() {
   const { REACT_APP_API_URL } = process.env;
   var AboutUsList = []
   const [data, setData] = useState(AboutUsList);
   React.useEffect(()=>{
+    if(getToken() != "Login Success"){
+      history.push("/login");
+    }
     getAboutUs()
   },[])
 
   function getAboutUs() {
-    const url = `${REACT_APP_API_URL}aboutus`;
+    const url = `${REACT_APP_API_URL}api/aboutus`;
     console.log(url)
     axios.get(url).then(
           (response) => {
@@ -25,8 +29,9 @@ export default function AboutUsList() {
           });
     }
 
+    
   const handleDelete = (id) => {
-    axios.delete(`${REACT_APP_API_URL}aboutus/delete/${id}`).then(()=>setData(data.filter((item) => item.aboutUsId !== id)));
+    axios.delete(`${REACT_APP_API_URL}api/aboutus/delete/${id}`).then(()=>setData(data.filter((item) => item.aboutUsId !== id)));
     alert("Deleted Successfully")
   };
 

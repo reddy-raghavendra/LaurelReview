@@ -9,7 +9,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {social} from "./Social.css"
+import {social} from "./Social.css";
+import { getToken } from "../Token/Token";
 import {
   faYoutube,
   faFacebook,
@@ -30,10 +31,12 @@ export default function EditAboutUS() {
     AboutUsCoverImage: ""
   });
   const { state } = useLocation();
-
+  if(getToken() != "Login Success"){
+    history.push("/login");
+  }
   async function  getAboutUs() {
 
-    const url = `${REACT_APP_API_URL}AboutUs/${state}`;
+    const url = `${REACT_APP_API_URL}api/AboutUs/${state}`;
     console.log(url)
       await axios.get(url).then(
           (response) => {             
@@ -113,7 +116,7 @@ const handleImageFile = async (event) => {
         "#post-request-async-await .article-id"
       );
       const response = await axios.post(
-        "${REACT_APP_API_URL}AboutUs/save",
+        "${REACT_APP_API_URL}api/AboutUs/save",
         newFormData
       );
       if(response.status == 200){

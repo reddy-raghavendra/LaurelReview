@@ -6,7 +6,8 @@ import { useState } from "react";
 import Alert from 'react-popup-alert'
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {social} from "./Social.css"
+import {social} from "./Social.css";
+import { getToken } from "../Token/Token";
 
 import {
   faYoutube,
@@ -20,6 +21,9 @@ import {
 export default function NewAboutUs() {
   const { REACT_APP_API_URL } = process.env;
     const history = useHistory()
+    if(getToken() != "Login Success"){
+      history.push("/login");
+    }
     const [imageUrl, setImageUrl] = useState("");
     const [formData,setFormData] = useState({
       aboutUsName:"",
@@ -73,7 +77,7 @@ export default function NewAboutUs() {
             "#post-request-async-await .article-id"
           );
           const response = await axios.post(
-            "${REACT_APP_API_URL}aboutus/save",
+            "${REACT_APP_API_URL}api/aboutus/save",
             newFormData
           );
           if(response.status == 200){
