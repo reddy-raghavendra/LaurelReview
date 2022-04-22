@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {social} from "./Social.css";
 import { getToken } from "../Token/Token";
+import {RichTextEditor} from "@mantine/rte";
 
 import {
   faYoutube,
@@ -25,6 +26,7 @@ export default function NewAboutUs() {
       history.push("/login");
     }
     const [imageUrl, setImageUrl] = useState("");
+    const[value,onChange] = useState("");
     const [formData,setFormData] = useState({
       aboutUsName:"",
       aboutUsRole:"",
@@ -70,14 +72,15 @@ export default function NewAboutUs() {
         const newFormData = {...formData};
         let AboutUsCoverImage = {imageUrl};
         newFormData.aboutUsCoverImage = AboutUsCoverImage.imageUrl;
-
+        let desc = {value}
+        newFormData.aboutUsDesc = desc.value;
     
         (async () => {
           const element = document.querySelector(
             "#post-request-async-await .article-id"
           );
           const response = await axios.post(
-            "${REACT_APP_API_URL}api/aboutus/save",
+            `${REACT_APP_API_URL}api/aboutus/save`,
             newFormData
           );
           if(response.status == 200){
@@ -105,8 +108,19 @@ export default function NewAboutUs() {
         </div>
         <div className="newUserItem">
           <label>Description</label>
-          <input type="text" id="textArea" name="aboutUsDesc" align="left" placeholder="Description" required="true" onChange={handleFormAddChange}/>
-        </div>
+          <RichTextEditor
+            controls={
+              [
+                ['bold','italic','underline']
+              ]
+            }
+             value={value}
+             onChange={onChange}
+          />
+
+
+
+</div>
         
         <div className="newUserItem">
           <div className="instagram social">

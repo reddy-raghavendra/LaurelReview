@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { getToken } from "../Token/Token";
 import SocialFollow from "./SocialFollow";
+import { useHistory } from "react-router-dom";
 
 export default function AboutUsDetails() {
+  var history = useHistory()
   const { REACT_APP_API_URL } = process.env;
   var aboutUsList = [];
   const [data, setData] = useState(aboutUsList);
@@ -45,7 +47,7 @@ export default function AboutUsDetails() {
         <div className="laurel-aboutus-details-content">
           <h3 className="aboutus-name">{about.aboutUsName}</h3>
           <p className="aboutus-pos">{about.aboutUsRole}</p>
-          <p className="aboutus-desc">{about.aboutUsDesc}</p>
+          <div className="aboutus-desc" dangerouslySetInnerHTML={{__html: about.aboutUsDesc}}/>
         </div>
       </div>
     </section>

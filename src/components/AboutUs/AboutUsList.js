@@ -6,8 +6,10 @@ import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { getToken } from "../Token/Token";
+import { useHistory } from 'react-router-dom';
 
 export default function AboutUsList() {
+  const history = useHistory();
   const { REACT_APP_API_URL } = process.env;
   var AboutUsList = []
   const [data, setData] = useState(AboutUsList);
