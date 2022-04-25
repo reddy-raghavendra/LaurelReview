@@ -15,13 +15,13 @@ export default function Newchapbook() {
     history.push("/login");
   }
   const { REACT_APP_API_URL } = process.env;
-  const { id } = React.useParams()
+  // const { id } = React.useParams()
   const [imageUrl, setImageUrl] = useState("");
   // const [audioUrl, setAudioUrl] = useState("");
   const [formData, setFormData] = useState({
     chapBookName: "",
     chapBookDesc: "",
-    chapBookTitle: "",
+    chapBookDate: "",
     chapBookCoverImage: ""
     // status: true
 
@@ -68,7 +68,7 @@ export default function Newchapbook() {
         "#post-request-async-await .article-id"
       );
       const response = await axios.post(
-        "${REACT_APP_API_URL}chapbook/save",
+        `${REACT_APP_API_URL}api/chapbook/save`,
         newFormData
       );
       if (response.status == 200) {
@@ -82,19 +82,19 @@ export default function Newchapbook() {
       <h1 className="newUserTitle">Create chapbook</h1>
       <form className="newUserForm">
         <div className="newUserItem">
-          <label>Title</label>
-          <input type="text" id="Title" name="chapBookTitle" align="left" placeholder="Title" required="true" onChange={handleFormAddChange} />
+          <label className="required-field">Title</label>
+          <input type="text" id="Title" name="chapBookName" align="left" placeholder="Title" required="true" onChange={handleFormAddChange} />
         </div>
         <div className="newUserItem">
-          <label>Author Name</label>
-          <input type="text" id="AuthorName" name="chapBookName" align="left" placeholder="Author Name" required="true" onChange={handleFormAddChange} />
+          <label className="required-field">Author Name</label>
+          <input type="text" id="AuthorName" name="chapBookDate" align="left" placeholder="Author Name" required="true" onChange={handleFormAddChange} />
         </div>
         <div className="newUserItem">
-          <label>Description of the chapbook</label>
+          <label className="required-field">Description of the chapbook</label>
           <input type="textarea" id="textArea" name="chapBookDesc" align="left" required="true" onChange={handleFormAddChange} />
         </div>
         <div className="newUserItem">
-          <label>Cover Image</label>
+          <label className="required-field">Cover Image</label>
           <input type="file" id="image" name="chapBookCoverImage" align="left" required="true" onChange={handleImageFile} />
         </div>
         {/* <div className="newUserItem">

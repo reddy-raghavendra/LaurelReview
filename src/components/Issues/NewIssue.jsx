@@ -206,7 +206,7 @@ export default function NewProduct() {
       <h1 className="addProductTitle">New Issue</h1>
       <form className="addProductForm">
         <div className="addProductItem">
-          <label>Title</label>
+          <label className="required-field">Title</label>
           <input
             type="text"
             name="title"
@@ -277,7 +277,7 @@ export default function NewProduct() {
           />
         </div>
         <div className="addProductItem">
-          <label>Cover page image</label>
+          <label className="required-field">Cover page image</label>
           <input
             name="imageFile"
             type="file"
@@ -288,7 +288,7 @@ export default function NewProduct() {
           />
         </div>
         <div className="addProductItem">
-          <label>PDF attachment</label>
+          <label className="required-field">PDF attachment</label>
           <input
             name="pdfFile"
             type="file"

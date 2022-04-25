@@ -94,16 +94,16 @@ export default function NewAboutUs() {
       <h1 className="newUserTitle">AboutUs</h1>
       <form className="newUserForm">      
         <div className="newUserItem">
-          <label>Name</label>
+          <label className="required-field">Name</label>
           <input type="text" id="aboutUsName" name="aboutUsName" align="left" placeholder="Name" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
-          <label>Role</label>
+          <label className="required-field">Role</label>
           <input type="text" id="aboutUsRole" name="aboutUsRole" align="left" placeholder="Role" required="true" onChange={handleFormAddChange}/>
         </div>
       
         <div className="newUserItem">
-          <label>Image</label>
+          <label className="required-field">Image</label>
           <input type="file" id="aboutUsCoverImage" name="aboutUsCoverImage" align="left" required="true" onChange={handleImageFile}/>
         </div>
         <div className="newUserItem">
@@ -117,9 +117,6 @@ export default function NewAboutUs() {
              value={value}
              onChange={onChange}
           />
-
-
-
 </div>
         
         <div className="newUserItem">

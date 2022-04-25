@@ -83,23 +83,23 @@ export default function NewUser() {
       <h1 className="newUserTitle">New User</h1>
       <form className="newUserForm">
         <div className="newUserItem">
-          <label>First Name</label>
+          <label className="required-field">First Name</label>
           <input type="text" id="fName" align="left" placeholder="First Name" required="true" />
         </div>
         <div className="newUserItem">
-          <label>Last Name</label>
+          <label className="required-field">Last Name</label>
           <input type="text" id="lName" align="left" placeholder="Last name" required="true" />
         </div>
         <div className="newUserItem">
-          <label>Email</label>
+          <label className="required-field">Email</label>
           <input type="email" id="email" align="left" placeholder="john@email.com" required="true" />
         </div>
         <div className="newUserItem">
-          <label>Password</label>
+          <label className="required-field">Password</label>
           <input type="password" id="password" align="left" placeholder="password" required="true" />
         </div>
         <div className="newUserItem">
-          <label>Phone</label>
+          <label className="required-field">Phone</label>
           <input type="text" id="phoneNo" align="left" placeholder="+1 123 456 78" required="true" />
         </div>
         <div className="newUserItem">

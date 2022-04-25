@@ -99,19 +99,19 @@ export default function NewPodCast() {
           <input type="text" id="podcastName" name="podcastName" align="left" placeholder="Podcast name" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
-          <label>Date</label>
+          <label className="required-field">Date</label>
           <input type="date" id="date" name="podcastDate" align="left" placeholder="Date" required="true" onChange={handleFormAddChange}/>
         </div>
         <div className="newUserItem">
-          <label>Audio file</label>
+          <label className="required-field">Audio file</label>
           <input type="file" id="audio" name="podcastAudioFile" align="left"  required="true" accept=".mp3,audio/*" onChange={handleAudioFile}/>
         </div>
         <div className="newUserItem">
-          <label>Cover Image</label>
+          <label className="required-field">Cover Image</label>
           <input type="file" id="image" name="podcastCoverImage" align="left" required="true" onChange={handleImageFile}/>
         </div>
         <div className="newUserItem">
-          <label>Description of the podcast</label>
+          <label className="required-field">Description of the podcast</label>
           <textarea type="textarea" id="textArea" name="podcastDesc" align="left" required="true" onChange={handleFormAddChange}/>
         </div>
         <button className="newUserButton" onClick={sendData}>Create</button>

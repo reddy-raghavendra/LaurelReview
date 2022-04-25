@@ -12,6 +12,10 @@
     flex-direction: column;
     margin-bottom: 10px;
   }
+  .required-field::after {
+    content: "*";
+    color: red;
+}
   .textArea{
     width: 500px;
     display: flex;

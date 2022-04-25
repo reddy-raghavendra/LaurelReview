@@ -51,7 +51,7 @@ export default class ChapbookDetail extends Component{
                                 </div>
                                 <div className="laurel-chapbook-details-content">
                                     <div className="laurel-chapbook-details-header-content">
-                                        <h1>{chapbook.chapBookName}</h1>
+                                        <h1>{chapbook.chapBookDate}</h1>
                                     </div>
                                     <div className="laurel-chapbook-details-table-content">
                                         <p>{chapbook.chapBookDesc}</p>
