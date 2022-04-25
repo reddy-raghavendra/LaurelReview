@@ -81,7 +81,7 @@ export default function NewPodCast() {
             "#post-request-async-await .article-id"
           );
           const response = await axios.post(
-            `${REACT_APP_API_URL}/podcast/save`,
+            `${REACT_APP_API_URL}api/podcast/save`,
             newFormData
           );
           if(response.status == 200){

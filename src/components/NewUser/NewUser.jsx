@@ -35,14 +35,13 @@ export default function NewUser() {
       // "active":true,
       // "role":"full access"}
 
-      const response = await axios.post(`${REACT_APP_API_URL}/api/save`, userData);
+      const response = await axios.post(`${REACT_APP_API_URL}api/save`, userData);
       // element.innerHTML = response.data.id;
       console.log(response)
       // alert("Created Successfully")
-      // if(response.data == "saved.."){
-      // alert("User Created Successfully")
-      //   // window.open("http://localhost:3001/users")
-      // }
+      if (response.status == 200) {
+        history.push("/users")
+      }
     })();
   }
 
