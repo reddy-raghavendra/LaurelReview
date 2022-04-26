@@ -32,10 +32,6 @@ export default function ChapbookList() {
               chapbookList = response.data
               console.log("Response",chapbookList)
               var list = chapbookList
-            //  list.forEach(pod => {
-            //    pod.buttonText = "Play";
-            //    pod.audio = ""
-            //  });
              setData(list)
                  console.log("chapbook list"+chapbookList)
           });
@@ -54,7 +50,7 @@ export default function ChapbookList() {
 
   const handleDelete = (id) => {
     debugger;
-    axios.delete(`${REACT_APP_API_URL}chapbook/delete/${id}`).then(()=>setData(data.filter((item) => item.chapBookId !== id)));
+    axios.delete(`${REACT_APP_API_URL}api/chapbook/delete/${id}`).then(()=>setData(data.filter((item) => item.chapBookId !== id)));
     alert("Deleted Successfully")
   };
 // function toggle(id){
@@ -73,12 +69,12 @@ export default function ChapbookList() {
 // })
 // }
   const columns = [
-    { field: "chapBookId", headerName: "chapBookId", width: 150 },
-    { field: "chapBookName", headerName: "chapBookName", width: 200 },
+    { field: "chapBookId", headerName: "ChapBook Id", width: 150 },
+    { field: "chapBookName", headerName: "Chap Book Name", width: 200 },
     // { field: "chapBookDesc", headerName: "chapBookDesc", width: 200 },
     {
       field: "chapBookCoverImage",
-      headerName: "chapBookCoverImage",
+      headerName: "Cover Image",
       width: 200,
       renderCell: (params) => {
         return (
