@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Introduction
+Laurel Review is a literary magazine run by Green Tower Press at Northwest Missouri State. The Laurel Review is a biannual print magazine seeking submissions of poetry, fiction, creative nonfiction, script, review, and those that blur the lines between genres. Their current web application needs improvement in User Interface and the manual work in uploading issues and chapbooks.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About application
 
-## Available Scripts
+This is a inventory web application where the laurel review team can comfortably add the issues, chapbook, podcasts submitted by submitters all over the world as an admin. All the added issues, chapbook and podcasts can be viewed by the users with access to the content of the books provided by the laurel review. Users can view these items effortlessly with a minimal navigation. Proper navigation to third party payment process to order books if the user is interested required to  be provided.
 
-In the project directory, you can run:
+## Project Website and Repository
+### Project Website
+Project website can be accessed using below link:
+[Laurel Review](https://laurelreview.netlify.app/)
 
-### `npm start`
+There are three things to be hosted in our application:
+* Frontend: Our react app is hosted at netlify
+* Backend: Our spring boot application is hosted at heroku.
+* Database: MySQL is running remotely at heroku.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Project Repository
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[Frontend](https://github.com/reddy-raghavendra/LaurelReview)
 
-### `npm test`
+[Backend](https://github.com/reddy-raghavendra/laurelreview-backend)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Collaborators
 
-### `npm run build`
+[Raghavendra Reddy](https://github.com/reddy-raghavendra)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Ajay Kumar Reddy Arram](https://github.com/ajayarram)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Dhanusha Goud Dommati](https://github.com/Dhanushagoud)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Nagateja Neerukonda](https://github.com/TejaUsa)
 
-### `npm run eject`
+[Padmini Duggirala](https://github.com/Padmini6699)
+ 	
+[Alekhya Billakanti](https://github.com/Alekyab98)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[Mehal Reddy Mula](https://github.com/MehalS542312)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Software Developer](https://github.com/yaswant1)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Technologies Used
+* Front End
+  * React JS: React JS is an open-source JavaScript library that is used for building user interfaces.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Back End
+  * Java: We used this language for back-end development and for creating rest API.
+  * Spring boot: Create stand-alone Spring applications Embed Tomcat, Jetty or Undertow directly (No need to deploy WAR files) Provide opinionated 'starter' dependencies to simplify your build configuration.
 
-## Learn More
+* Database
+  * MySQL: MySQL is an open-source relational database management system(RDBMS). We used to store the data into tables as per our requirement.
+  * Firebase: The Firebase Realtime Database is a cloud-hosted NoSQL database that lets you store and sync data between your users in Realtime.
+# Application at a glance
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project consists of homepage from where the user can navigate to various modules of the application like issues, chapbook, social media pages etc. Submissions and Subscriptions page will navigate to third party website. Below images depicts the homepage of the project. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Screenshot (39)](https://user-images.githubusercontent.com/77422478/166179138-48d0a276-09ee-4f7e-b01b-730fe3b9484f.png)
 
-### Code Splitting
+This website also has social media accounts and the links to those accounts provided in the homepage as depicted in the below image.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Screenshot (17)](https://user-images.githubusercontent.com/77422478/166179068-9e60a107-96bb-4821-a0c6-13beb5398500.png)
 
-### Analyzing the Bundle Size
+Only admin can login to the system and manage the website data, below image shows the portal of admin login.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Screenshot (22)](https://user-images.githubusercontent.com/77422478/166179179-083a5e7b-47e2-46e4-be3f-6bbe1265d5ad.png)
 
-### Making a Progressive Web App
+Once the admin logs in, admin dashboard is shown where admin can manipulate data of different components in the modules. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Screenshot (26)](https://user-images.githubusercontent.com/77422478/166179205-aa5388a3-ec37-4193-b7fd-f39f8c958724.png)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
