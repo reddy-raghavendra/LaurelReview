@@ -37,7 +37,7 @@ There are three things to be hosted in our application:
 
 [Mehal Reddy Mula](https://github.com/MehalS542312)
 
-[Software Developer](https://github.com/yaswant1)
+[Yaswant Lakkaraju](https://github.com/yaswant1)
 
 # Technologies Used
 * Front End
