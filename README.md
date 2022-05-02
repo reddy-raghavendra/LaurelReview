@@ -7,8 +7,7 @@ This is a inventory web application where the laurel review team can comfortably
 
 ## Project Website and Repository
 ### Project Website
-Project website can be accessed using below link:
-[Laurel Review](https://laurelreview.netlify.app/)
+Project website can be accessed using below link: (https://laurelreview.netlify.app/)[https://laurelreview.netlify.app]
 
 There are three things to be hosted in our application:
 * Frontend: Our react app is hosted at netlify
@@ -60,9 +59,9 @@ This website also has social media accounts and the links to those accounts prov
 
 ![Screenshot (17)](https://user-images.githubusercontent.com/77422478/166179068-9e60a107-96bb-4821-a0c6-13beb5398500.png)
 
-Only admin can login to the system and manage the website data, below image shows the portal of admin login.
+Only admin can login to the system and manage the website data, below image shows the portal of admin login using url: (https://laurelreview.netlify.app/login)[https://laurelreview.netlify.app/login]
 
-![Screenshot (22)](https://user-images.githubusercontent.com/77422478/166179179-083a5e7b-47e2-46e4-be3f-6bbe1265d5ad.png)
+![Screenshot (40)](https://user-images.githubusercontent.com/77422478/166179450-addc662b-633a-4572-935f-07dbf49ff7f5.png)
 
 Once the admin logs in, admin dashboard is shown where admin can manipulate data of different components in the modules. 
 
